@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoTematico.Dto;
 
-public class UserDto
+public class UserDto : BaseDto
 {
     public UserDto() { }
 
@@ -19,7 +19,6 @@ public class UserDto
         Telefone = user.Telefone;
     }
 
-    public int Id { get; set; }
     public int? AccessProfileId { get; set; }
     public string Nome { get; set; }
     public string Cpf { get; set; }

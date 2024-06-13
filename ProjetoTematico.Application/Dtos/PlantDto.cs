@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoTematico.Dto;
 
-public class PlantDto
+public class PlantDto : BaseDto
 {
     public Plant Teste{ get; set; }
 }

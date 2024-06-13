@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoTematico.Dto;
 
-public class ScheduleDto
+public class ScheduleDto : BaseDto
 {
 
 }
