@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoTematico.Domain;
 
-public class Garden
+public class Garden : BaseModel
 {
     [Key]
     public int Id { get; set; }

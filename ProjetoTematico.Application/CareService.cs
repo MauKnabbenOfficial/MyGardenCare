@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ProjetoTematico.Domain;
+using ProjetoTematico.Dto;
+using ProjetoTematico.Persistence;
 
 namespace ProjetoTematico.Service;
 
-public class CareService
+public class CareService : BaseService<Care, CareDto>
 {
-
+    public CareService(MyGardenCareContext context) : base(context)
+    {
+    }
 }
