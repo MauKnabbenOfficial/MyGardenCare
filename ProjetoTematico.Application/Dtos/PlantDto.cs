@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetoTematico.Application;
+namespace ProjetoTematico.Dto;
 
-public class PlantDto
+public class PlantDto : BaseDto
 {
     public Plant Teste{ get; set; }
 }

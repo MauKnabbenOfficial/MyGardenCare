@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoTematico.Domain;
 
-public class Schedule
+public class Schedule : BaseModel
 {
     [Key]
     public int Id { get; set; }

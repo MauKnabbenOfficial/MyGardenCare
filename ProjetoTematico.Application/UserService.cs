@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using ProjetoTematico.Domain;
+using ProjetoTematico.Persistence;
+using ProjetoTematico.Dto;
 
-namespace ProjetoTematico.Application;
+namespace ProjetoTematico.Service;
 
-public class UserService
+public class UserService : BaseService<User, UserDto>
 {
+    public UserService(MyGardenCareContext context) : base(context)
+    {
 
+    }
 }

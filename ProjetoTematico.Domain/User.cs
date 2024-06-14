@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace ProjetoTematico.Domain;
 
-public class User
+public class User : BaseModel
 {
-    [Key]
-    public int Id { get; set; }
+    public int? AccessProfileId { get; set; }
+    public string Nome { get; set; }
+    public string Cpf { get; set; }
+    public string Telefone { get; set; }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using ProjetoTematico.Domain;
 using System;
 using System.Collections.Generic;
@@ -21,23 +22,21 @@ namespace ProjetoTematico.Persistence
         public DbSet<User> Users { get; set; }
         public DbSet<Works> Works { get; set; }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    base.OnModelCreating(modelBuilder);
-        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlite("Data Source=teste.db");
-        }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<AccessProfile>(accessProfile =>
-        //    {
-        //        accessProfile.HasKey
-        //    });
-        //}
+            string outputPath = Directory.GetCurrentDirectory();
+            string databasePath = Path.Combine(outputPath, "teste.db");
+            optionsBuilder.UseSqlite($"Data Source={databasePath}");
+
+            //optionsBuilder.UseSqlite("Data Source=./database/teste.db");
+            optionsBuilder.LogTo(Console.WriteLine, LogLevel.Information);
+        }
     }
 }

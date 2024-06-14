@@ -21,6 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ProjetoTematico.Application\ProjetoTematico.Application.csproj" />
+    <ProjectReference Include="..\ProjetoTematico.Domain\ProjetoTematico.Domain.csproj" />
     <ProjectReference Include="..\ProjetoTematico.Persistence\ProjetoTematico.Persistence.csproj" />
   </ItemGroup>
 
@@ -37,6 +39,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="database\" />
   </ItemGroup>
 
 </Project>

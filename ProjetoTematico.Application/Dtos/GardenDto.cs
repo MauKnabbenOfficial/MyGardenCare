@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ProjetoTematico.Dto;
 
-namespace ProjetoTematico.Application;
-
-public class GardenDto
+public class GardenDto : BaseDto
 {
 
 }

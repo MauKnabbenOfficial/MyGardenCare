@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ProjetoTematico.Domain;
+using ProjetoTematico.Dto;
+using ProjetoTematico.Persistence;
 
-namespace ProjetoTematico.Application;
+namespace ProjetoTematico.Service;
 
-public class AccessProfileService
+public class AccessProfileService : BaseService<AccessProfile, AccessProfileDto>
 {
-
+    public AccessProfileService(MyGardenCareContext context) : base(context)
+    {
+    }
 }

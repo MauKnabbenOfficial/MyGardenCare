@@ -43,7 +43,7 @@ namespace Teste
             }
             catch (Exception ex)
             {
-
+                var teste = ex.ToString();
                 throw;
             }
         }
