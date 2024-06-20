@@ -5,19 +5,17 @@ using ProjetoTematico.Service;
 
 namespace ProjetoTematico.Controllers;
 
-public class UserController
+public class UserController : BaseController
 {
-    private readonly MyGardenCareContext _context;
     private readonly UserService _service;
 
     public UserController()
     {
-        _context = new MyGardenCareContext();
         _service = new UserService(_context);
     }
 
     public UserDto GetById(int id) => _service.GetById(id);
-    public int CreateUser(UserDto dto) => _service.CreateUser(dto);
-    public UserDto UpdateUser(UserDto dto) => _service.UpdateUser(dto);
-    public void DeleteUser(UserDto dto) => _service.DeleteUser(dto);
+    public int CreateUser(UserDto dto) => _service.Create(dto);
+    public UserDto UpdateUser(UserDto dto) => _service.Update(dto);
+    public void DeleteUser(int id) => _service.Delete(id);
 }
