@@ -8,5 +8,6 @@ public class AccessProfileService : BaseService<AccessProfile, AccessProfileDto>
 {
     public AccessProfileService(MyGardenCareContext context) : base(context)
     {
+
     }
 }
