@@ -20,11 +20,6 @@ namespace ProjetoTematico
             _controle = new UserController();
             InitializeComponent();
             SetToPanelChildForm();
-
-            // Ajustar propriedades do formulário filho
-            //this.TopLevel = false; // Define que este formulário não é um formulário de nível superior
-            //this.FormBorderStyle = FormBorderStyle.None; // Remove a borda e os botões de controle
-            //this.Dock = DockStyle.Fill;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
