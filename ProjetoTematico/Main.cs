@@ -1,5 +1,6 @@
 ﻿using ProjetoTematico.Garden;
 using ProjetoTematico.Plant;
+using ProjetoTematico.Product;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,6 +55,21 @@ namespace ProjetoTematico
             this.mainPanel.Controls.Clear();
 
             GardenForm gardenForm = new GardenForm
+            {
+                TopLevel = false,
+                Dock = DockStyle.Fill,
+            };
+
+            this.mainPanel.Controls.Add(gardenForm);
+
+            gardenForm.Show();
+        }
+
+        private void produtoBtnMenuItem_Click(object sender, EventArgs e)
+        {
+            this.mainPanel.Controls.Clear();
+
+            ProductForm gardenForm = new ProductForm
             {
                 TopLevel = false,
                 Dock = DockStyle.Fill,
