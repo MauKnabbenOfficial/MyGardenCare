@@ -1,4 +1,5 @@
-﻿using ProjetoTematico.Plant;
+﻿using ProjetoTematico.Garden;
+using ProjetoTematico.Plant;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,6 +47,21 @@ namespace ProjetoTematico
             this.mainPanel.Controls.Add(plantForm);
 
             plantForm.Show();
+        }
+
+        private void jardimBtnMenuItem_Click(object sender, EventArgs e)
+        {
+            this.mainPanel.Controls.Clear();
+
+            GardenForm gardenForm = new GardenForm
+            {
+                TopLevel = false,
+                Dock = DockStyle.Fill,
+            };
+
+            this.mainPanel.Controls.Add(gardenForm);
+
+            gardenForm.Show();
         }
     }
 }

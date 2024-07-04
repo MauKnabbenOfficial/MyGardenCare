@@ -51,6 +51,7 @@
             // 
             // headerLabel
             // 
+            headerLabel.Font = new Font("Segoe UI", 12F);
             headerLabel.Size = new Size(1016, 50);
             // 
             // footerPanel
@@ -60,6 +61,7 @@
             // 
             // footerLabel
             // 
+            footerLabel.Font = new Font("Segoe UI", 12F);
             footerLabel.Size = new Size(1016, 30);
             // 
             // menuStrip1
@@ -68,59 +70,61 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { cadastrosToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(130, 24);
+            menuStrip1.Size = new Size(130, 29);
             menuStrip1.TabIndex = 2;
             menuStrip1.Text = "menuStrip1";
             // 
             // cadastrosToolStripMenuItem
             // 
             cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { usuarioBtnMenuItem, perfilBtnMenuItem, jardimBtnMenuItem, plantaBtnMenuItem, produtoBtnMenuItem, cronogramaBtnMenuItem, trabalhoBtnMenuItem });
+            cadastrosToolStripMenuItem.Font = new Font("Segoe UI", 12F);
             cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            cadastrosToolStripMenuItem.Size = new Size(71, 20);
+            cadastrosToolStripMenuItem.Size = new Size(91, 25);
             cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
             // usuarioBtnMenuItem
             // 
             usuarioBtnMenuItem.Name = "usuarioBtnMenuItem";
-            usuarioBtnMenuItem.Size = new Size(180, 22);
+            usuarioBtnMenuItem.Size = new Size(168, 26);
             usuarioBtnMenuItem.Text = "Usuario";
             usuarioBtnMenuItem.Click += usuarioBtnMenuItem_Click;
             // 
             // perfilBtnMenuItem
             // 
             perfilBtnMenuItem.Name = "perfilBtnMenuItem";
-            perfilBtnMenuItem.Size = new Size(180, 22);
+            perfilBtnMenuItem.Size = new Size(168, 26);
             perfilBtnMenuItem.Text = "Perfil";
             // 
             // jardimBtnMenuItem
             // 
             jardimBtnMenuItem.Name = "jardimBtnMenuItem";
-            jardimBtnMenuItem.Size = new Size(180, 22);
+            jardimBtnMenuItem.Size = new Size(168, 26);
             jardimBtnMenuItem.Text = "Jardim";
+            jardimBtnMenuItem.Click += jardimBtnMenuItem_Click;
             // 
             // plantaBtnMenuItem
             // 
             plantaBtnMenuItem.Name = "plantaBtnMenuItem";
-            plantaBtnMenuItem.Size = new Size(180, 22);
+            plantaBtnMenuItem.Size = new Size(168, 26);
             plantaBtnMenuItem.Text = "Planta";
             plantaBtnMenuItem.Click += plantaBtnMenuItem_Click;
             // 
             // produtoBtnMenuItem
             // 
             produtoBtnMenuItem.Name = "produtoBtnMenuItem";
-            produtoBtnMenuItem.Size = new Size(180, 22);
+            produtoBtnMenuItem.Size = new Size(168, 26);
             produtoBtnMenuItem.Text = "Produto";
             // 
             // cronogramaBtnMenuItem
             // 
             cronogramaBtnMenuItem.Name = "cronogramaBtnMenuItem";
-            cronogramaBtnMenuItem.Size = new Size(180, 22);
+            cronogramaBtnMenuItem.Size = new Size(168, 26);
             cronogramaBtnMenuItem.Text = "Cronograma";
             // 
             // trabalhoBtnMenuItem
             // 
             trabalhoBtnMenuItem.Name = "trabalhoBtnMenuItem";
-            trabalhoBtnMenuItem.Size = new Size(180, 22);
+            trabalhoBtnMenuItem.Size = new Size(168, 26);
             trabalhoBtnMenuItem.Text = "Trabalho";
             // 
             // mainPanel
@@ -159,7 +163,7 @@
             Name = "Main";
             SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Main";
+            Text = "MyGardenCare";
             Controls.SetChildIndex(footerPanel, 0);
             Controls.SetChildIndex(headerPanel, 0);
             Controls.SetChildIndex(LayoutPanelMain, 0);

@@ -48,5 +48,10 @@ namespace ProjetoTematico
                 MessageBox.Show(ex.Message, "Ocorreu um Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void lblNome_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -15,6 +15,7 @@ namespace ProjetoTematico.Plant
     public partial class PlantForm : Form
     {
         PlantController _controle;
+        List<CareDto> _cuidados = new List<CareDto>();
         public PlantForm()
         {
             InitializeComponent();
@@ -34,7 +35,7 @@ namespace ProjetoTematico.Plant
                     Nome = Nome,
                     Apelido = Apelido,
                     Observacoes = Observacoes,
-                    DataPlantio = DataPlantio                    
+                    DataPlantio = DataPlantio
                 };
 
                 _controle.CreatePlant(newPlant);
@@ -47,5 +48,19 @@ namespace ProjetoTematico.Plant
                 MessageBox.Show(ex.Message, "Ocorreu um Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void btnAddCuidado_Click(object sender, EventArgs e)
+        {
+            CareDto newCare = new CareDto
+            {
+                Descricao = txtDescricaoCuidado.Text,
+                Observacao = txtObservacoesCuidado.Text,
+                IndPeriodicidade = comboPeriodicidade.SelectedIndex,
+            };
+
+            dgvCuidados.Rows.Add(newCare.Descricao, newCare.Observacao, comboPeriodicidade.Text);
+
+            _cuidados.Add(newCare);
+        }        
     }
 }
