@@ -31,12 +31,12 @@
             menuStrip1 = new MenuStrip();
             cadastrosToolStripMenuItem = new ToolStripMenuItem();
             usuarioBtnMenuItem = new ToolStripMenuItem();
-            perfilToolStripMenuItem = new ToolStripMenuItem();
-            jardimToolStripMenuItem = new ToolStripMenuItem();
-            plantaToolStripMenuItem = new ToolStripMenuItem();
-            produtoToolStripMenuItem = new ToolStripMenuItem();
-            cronogramaToolStripMenuItem = new ToolStripMenuItem();
-            trabalhoToolStripMenuItem = new ToolStripMenuItem();
+            perfilBtnMenuItem = new ToolStripMenuItem();
+            jardimBtnMenuItem = new ToolStripMenuItem();
+            plantaBtnMenuItem = new ToolStripMenuItem();
+            produtoBtnMenuItem = new ToolStripMenuItem();
+            cronogramaBtnMenuItem = new ToolStripMenuItem();
+            trabalhoBtnMenuItem = new ToolStripMenuItem();
             mainPanel = new Panel();
             LayoutPanelMain = new TableLayoutPanel();
             headerPanel.SuspendLayout();
@@ -74,7 +74,7 @@
             // 
             // cadastrosToolStripMenuItem
             // 
-            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { usuarioBtnMenuItem, perfilToolStripMenuItem, jardimToolStripMenuItem, plantaToolStripMenuItem, produtoToolStripMenuItem, cronogramaToolStripMenuItem, trabalhoToolStripMenuItem });
+            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { usuarioBtnMenuItem, perfilBtnMenuItem, jardimBtnMenuItem, plantaBtnMenuItem, produtoBtnMenuItem, cronogramaBtnMenuItem, trabalhoBtnMenuItem });
             cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             cadastrosToolStripMenuItem.Size = new Size(71, 20);
             cadastrosToolStripMenuItem.Text = "Cadastros";
@@ -82,45 +82,46 @@
             // usuarioBtnMenuItem
             // 
             usuarioBtnMenuItem.Name = "usuarioBtnMenuItem";
-            usuarioBtnMenuItem.Size = new Size(141, 22);
+            usuarioBtnMenuItem.Size = new Size(180, 22);
             usuarioBtnMenuItem.Text = "Usuario";
             usuarioBtnMenuItem.Click += usuarioBtnMenuItem_Click;
             // 
-            // perfilToolStripMenuItem
+            // perfilBtnMenuItem
             // 
-            perfilToolStripMenuItem.Name = "perfilToolStripMenuItem";
-            perfilToolStripMenuItem.Size = new Size(141, 22);
-            perfilToolStripMenuItem.Text = "Perfil";
+            perfilBtnMenuItem.Name = "perfilBtnMenuItem";
+            perfilBtnMenuItem.Size = new Size(180, 22);
+            perfilBtnMenuItem.Text = "Perfil";
             // 
-            // jardimToolStripMenuItem
+            // jardimBtnMenuItem
             // 
-            jardimToolStripMenuItem.Name = "jardimToolStripMenuItem";
-            jardimToolStripMenuItem.Size = new Size(141, 22);
-            jardimToolStripMenuItem.Text = "Jardim";
+            jardimBtnMenuItem.Name = "jardimBtnMenuItem";
+            jardimBtnMenuItem.Size = new Size(180, 22);
+            jardimBtnMenuItem.Text = "Jardim";
             // 
-            // plantaToolStripMenuItem
+            // plantaBtnMenuItem
             // 
-            plantaToolStripMenuItem.Name = "plantaToolStripMenuItem";
-            plantaToolStripMenuItem.Size = new Size(141, 22);
-            plantaToolStripMenuItem.Text = "Planta";
+            plantaBtnMenuItem.Name = "plantaBtnMenuItem";
+            plantaBtnMenuItem.Size = new Size(180, 22);
+            plantaBtnMenuItem.Text = "Planta";
+            plantaBtnMenuItem.Click += plantaBtnMenuItem_Click;
             // 
-            // produtoToolStripMenuItem
+            // produtoBtnMenuItem
             // 
-            produtoToolStripMenuItem.Name = "produtoToolStripMenuItem";
-            produtoToolStripMenuItem.Size = new Size(141, 22);
-            produtoToolStripMenuItem.Text = "Produto";
+            produtoBtnMenuItem.Name = "produtoBtnMenuItem";
+            produtoBtnMenuItem.Size = new Size(180, 22);
+            produtoBtnMenuItem.Text = "Produto";
             // 
-            // cronogramaToolStripMenuItem
+            // cronogramaBtnMenuItem
             // 
-            cronogramaToolStripMenuItem.Name = "cronogramaToolStripMenuItem";
-            cronogramaToolStripMenuItem.Size = new Size(141, 22);
-            cronogramaToolStripMenuItem.Text = "Cronograma";
+            cronogramaBtnMenuItem.Name = "cronogramaBtnMenuItem";
+            cronogramaBtnMenuItem.Size = new Size(180, 22);
+            cronogramaBtnMenuItem.Text = "Cronograma";
             // 
-            // trabalhoToolStripMenuItem
+            // trabalhoBtnMenuItem
             // 
-            trabalhoToolStripMenuItem.Name = "trabalhoToolStripMenuItem";
-            trabalhoToolStripMenuItem.Size = new Size(141, 22);
-            trabalhoToolStripMenuItem.Text = "Trabalho";
+            trabalhoBtnMenuItem.Name = "trabalhoBtnMenuItem";
+            trabalhoBtnMenuItem.Size = new Size(180, 22);
+            trabalhoBtnMenuItem.Text = "Trabalho";
             // 
             // mainPanel
             // 
@@ -176,12 +177,12 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem cadastrosToolStripMenuItem;
         private ToolStripMenuItem usuarioBtnMenuItem;
-        private ToolStripMenuItem perfilToolStripMenuItem;
-        private ToolStripMenuItem jardimToolStripMenuItem;
-        private ToolStripMenuItem plantaToolStripMenuItem;
-        private ToolStripMenuItem produtoToolStripMenuItem;
-        private ToolStripMenuItem cronogramaToolStripMenuItem;
-        private ToolStripMenuItem trabalhoToolStripMenuItem;
+        private ToolStripMenuItem perfilBtnMenuItem;
+        private ToolStripMenuItem jardimBtnMenuItem;
+        private ToolStripMenuItem plantaBtnMenuItem;
+        private ToolStripMenuItem produtoBtnMenuItem;
+        private ToolStripMenuItem cronogramaBtnMenuItem;
+        private ToolStripMenuItem trabalhoBtnMenuItem;
         private Panel mainPanel;
         private TableLayoutPanel LayoutPanelMain;
     }

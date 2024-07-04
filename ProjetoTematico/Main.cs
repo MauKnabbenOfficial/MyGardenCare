@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetoTematico.Plant;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,6 +31,21 @@ namespace ProjetoTematico
             this.mainPanel.Controls.Add(userForm);
 
             userForm.Show();
+        }
+
+        private void plantaBtnMenuItem_Click(object sender, EventArgs e)
+        {
+            this.mainPanel.Controls.Clear();
+
+            PlantForm plantForm = new PlantForm
+            {
+                TopLevel = false,
+                Dock = DockStyle.Fill,
+            };
+
+            this.mainPanel.Controls.Add(plantForm);
+
+            plantForm.Show();
         }
     }
 }

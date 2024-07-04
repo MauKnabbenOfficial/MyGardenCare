@@ -11,4 +11,9 @@ public class Plant : BaseModel
 {
     [Key]
     public int Id { get; set; }
+    public int AccessProfileId { get; set; }
+    public string Nome { get; set; }
+    public string Apelido { get; set; }
+    public string Observacoes { get; set; }
+    public DateTime DataPlantio { get; set; }
 }
