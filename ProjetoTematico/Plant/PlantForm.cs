@@ -12,15 +12,47 @@ using System.Windows.Forms;
 
 namespace ProjetoTematico.Plant
 {
-    public partial class PlantForm : Form
+    public partial class PlantForm : BaseControl
     {
         PlantController _controle;
         List<CareDto> _cuidados = new List<CareDto>();
         public PlantForm()
         {
             InitializeComponent();
+            SetToPanelChildForm();
         }
+        public PlantForm(int id) : this()
+        {
+            //var plant = _controle.GetById(id);
+            var plantas = new List<PlantDto>();
+            plantas.Add(new PlantDto()
+            {
+                Id = 1,
+                Nome = "Samambaia",
+                DataPlantio = DateTime.Now,
+            });
+            plantas.Add(new PlantDto()
+            {
+                Id = 2,
+                Nome = "Palmeira",
+                DataPlantio = DateTime.Now.AddDays(1),
+            });
+            plantas.Add(new PlantDto()
+            {
+                Id = 3,
+                Nome = "Flor",
+                DataPlantio = DateTime.Now.AddDays(-1),
+            });
 
+            PopularCampos(plantas.Find(p => p.Id == id));
+        }
+        private void PopularCampos(PlantDto plant)
+        {
+            this.txtNome.Text = plant.Nome;
+            this.txtApelido.Text = plant.Apelido;
+            this.txtObservacoes.Text = plant.Observacoes;
+            this.dataPlantio.Value = plant.DataPlantio;
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
             var Nome = this.txtNome.Text;
@@ -61,6 +93,22 @@ namespace ProjetoTematico.Plant
             dgvCuidados.Rows.Add(newCare.Descricao, newCare.Observacao, comboPeriodicidade.Text);
 
             _cuidados.Add(newCare);
-        }        
+        }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnRemoveCuidado_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow r in dgvCuidados.SelectedRows)
+            {
+                if (!r.IsNewRow)
+                {
+                    dgvCuidados.Rows.RemoveAt(r.Index);
+                }
+            }
+        }
     }
 }

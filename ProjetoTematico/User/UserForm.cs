@@ -21,6 +21,29 @@ namespace ProjetoTematico
             InitializeComponent();
             SetToPanelChildForm();
         }
+        public UserForm(int id) : this()
+        {
+            //var user = _controle.GetById(id);
+            var user = new UserDto(){ 
+               Id = id,
+               Nome = "Teste",
+               Cpf = "00000000010",
+               Email = "email@email.com",
+               IsAdmin = true,
+               Telefone = "999999999"
+            };
+
+            PopularCampos(user);
+        }
+
+        private void PopularCampos(UserDto user)
+        {
+            this.txtNome.Text = user.Nome;
+            this.txtCpf.Text = user.Cpf;
+            this.txtPhone.Text = user.Telefone;
+            this.txtEmail.Text = user.Email;
+            this.IsAdmin.Checked = user.IsAdmin;
+        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -28,6 +51,8 @@ namespace ProjetoTematico
             var Nome = this.txtNome.Text;
             var Cpf = this.txtCpf.Text;
             var Telefone = this.txtPhone.Text;
+            var Email = this.txtEmail.Text;
+            var IsAdmin = this.IsAdmin.Checked;
 
             try
             {
@@ -35,7 +60,9 @@ namespace ProjetoTematico
                 {
                     Nome = Nome,
                     Cpf = Cpf,
-                    Telefone = Telefone
+                    Telefone = Telefone,
+                    Email = Email,
+                    IsAdmin = IsAdmin
                 };
 
                 _controle.CreateUser(newUser);
@@ -47,11 +74,11 @@ namespace ProjetoTematico
             {
                 MessageBox.Show(ex.Message, "Ocorreu um Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
+        }        
 
-        private void lblNome_Click(object sender, EventArgs e)
+        private void btnFechar_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

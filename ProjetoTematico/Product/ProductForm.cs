@@ -17,7 +17,26 @@ namespace ProjetoTematico.Product
         ProductController _controle;
         public ProductForm()
         {
+            _controle = new ProductController();
             InitializeComponent();
+        }
+        public ProductForm(int id) : this()
+        {
+            //var product = _controle.GetById(id);
+            var product = new ProductDto()
+            {
+                Id = id,
+                Nome = "Adubo",
+                Observacoes = "Manusear com luvas",
+                QtdEstoque = 10
+            };
+            popularCampos(product);
+        }
+        private void popularCampos(ProductDto product)
+        {
+            this.txtNome.Text = product.Nome;
+            this.qtdEstoque.Text = product.QtdEstoque.ToString();
+            this.txtObservacoes.Text = product.Observacoes;
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -45,9 +64,9 @@ namespace ProjetoTematico.Product
             }
         }
 
-        private void txtNome_TextChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

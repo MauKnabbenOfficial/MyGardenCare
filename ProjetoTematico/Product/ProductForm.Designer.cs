@@ -37,24 +37,26 @@
             label1 = new Label();
             txtObservacoes = new TextBox();
             label2 = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // lblH1
             // 
-            lblH1.AutoSize = true;
             lblH1.BackColor = Color.YellowGreen;
+            lblH1.Dock = DockStyle.Top;
             lblH1.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblH1.ForeColor = Color.DarkOliveGreen;
-            lblH1.Location = new Point(51, 33);
+            lblH1.Location = new Point(0, 0);
             lblH1.Name = "lblH1";
-            lblH1.Size = new Size(463, 50);
+            lblH1.Size = new Size(558, 50);
             lblH1.TabIndex = 26;
             lblH1.Text = "CADASTRO DE PRODUTO";
+            lblH1.TextAlign = ContentAlignment.TopCenter;
             // 
             // qtdEstoque
             // 
             qtdEstoque.Font = new Font("Segoe UI", 12F);
-            qtdEstoque.Location = new Point(148, 163);
+            qtdEstoque.Location = new Point(163, 102);
             qtdEstoque.Name = "qtdEstoque";
             qtdEstoque.Size = new Size(134, 29);
             qtdEstoque.TabIndex = 23;
@@ -64,7 +66,7 @@
             lblObservacoes.AutoSize = true;
             lblObservacoes.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblObservacoes.ForeColor = Color.White;
-            lblObservacoes.Location = new Point(35, 162);
+            lblObservacoes.Location = new Point(50, 101);
             lblObservacoes.Name = "lblObservacoes";
             lblObservacoes.Size = new Size(100, 21);
             lblObservacoes.TabIndex = 25;
@@ -73,21 +75,20 @@
             // txtNome
             // 
             txtNome.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            txtNome.Location = new Point(148, 124);
+            txtNome.Location = new Point(163, 63);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(280, 29);
             txtNome.TabIndex = 21;
-            txtNome.TextChanged += txtNome_TextChanged;
             // 
             // btnSave
             // 
             btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnSave.ForeColor = Color.DarkOliveGreen;
-            btnSave.Location = new Point(414, 272);
+            btnSave.Location = new Point(323, 208);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(100, 31);
             btnSave.TabIndex = 27;
-            btnSave.Text = "SALVAR";
+            btnSave.Text = "Salvar";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
@@ -97,7 +98,7 @@
             lblNome.BackColor = Color.SeaGreen;
             lblNome.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblNome.ForeColor = Color.White;
-            lblNome.Location = new Point(35, 127);
+            lblNome.Location = new Point(50, 66);
             lblNome.Name = "lblNome";
             lblNome.Size = new Size(57, 21);
             lblNome.TabIndex = 20;
@@ -116,7 +117,7 @@
             // txtObservacoes
             // 
             txtObservacoes.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            txtObservacoes.Location = new Point(148, 202);
+            txtObservacoes.Location = new Point(163, 141);
             txtObservacoes.Multiline = true;
             txtObservacoes.Name = "txtObservacoes";
             txtObservacoes.Size = new Size(366, 61);
@@ -127,11 +128,23 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(35, 200);
+            label2.Location = new Point(50, 139);
             label2.Name = "label2";
             label2.Size = new Size(107, 21);
             label2.TabIndex = 30;
             label2.Text = "Observações";
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            button1.ForeColor = Color.DarkOliveGreen;
+            button1.Location = new Point(429, 208);
+            button1.Name = "button1";
+            button1.Size = new Size(100, 31);
+            button1.TabIndex = 31;
+            button1.Text = "Fechar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // ProductForm
             // 
@@ -139,6 +152,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SeaGreen;
             ClientSize = new Size(558, 313);
+            Controls.Add(button1);
             Controls.Add(txtObservacoes);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -166,5 +180,6 @@
         private Label label1;
         private TextBox txtObservacoes;
         private Label label2;
+        private Button button1;
     }
 }

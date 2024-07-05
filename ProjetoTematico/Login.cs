@@ -26,9 +26,10 @@ namespace ProjetoTematico
                     Senha = password
                 };
 
-                var login = _controle.DoLogin(user);
+                //var login = _controle.DoLogin(user);
+                var login = new LoginDto();
 
-                if(login is not null)
+                if (login is not null)
                 {
                     this.Hide();
                     Main formMain = new Main();

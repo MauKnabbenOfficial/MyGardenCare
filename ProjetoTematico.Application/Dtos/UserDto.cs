@@ -1,4 +1,5 @@
 ﻿using ProjetoTematico.Domain;
+using System.Globalization;
 
 namespace ProjetoTematico.Dto;
 
@@ -19,5 +20,7 @@ public class UserDto : BaseDto
     public string Nome { get; set; }
     public string Cpf { get; set; }
     public string Telefone { get; set; }
-    public string Senha { get; set; }
+    public string Email { get; set; }
+    public string Senha { get; set; }    
+    public bool IsAdmin { get; set; }
 }

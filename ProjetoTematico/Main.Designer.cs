@@ -32,13 +32,15 @@
             menuToolStripMenuItem = new ToolStripMenuItem();
             cadastrosToolStripMenuItem1 = new ToolStripMenuItem();
             cadastroUsuarioBtnMenuItem = new ToolStripMenuItem();
-            cadastroPerfilBtnMenuItem = new ToolStripMenuItem();
             cadastroJardimBtnMenuItem = new ToolStripMenuItem();
-            plantaToolStripMenuItem = new ToolStripMenuItem();
-            produtoToolStripMenuItem = new ToolStripMenuItem();
-            cronogramaToolStripMenuItem = new ToolStripMenuItem();
+            cadastroPlantaBtnMenuItem = new ToolStripMenuItem();
+            cadastroProdutoBtnMenuItem = new ToolStripMenuItem();
             trabalhoToolStripMenuItem = new ToolStripMenuItem();
             consultasToolStripMenuItem = new ToolStripMenuItem();
+            consultaUsuarioBtnMenuItem = new ToolStripMenuItem();
+            consultaPlantaBtnMenuItem = new ToolStripMenuItem();
+            consultaProdutoBtnMenuItem = new ToolStripMenuItem();
+            consultaCronogramaBtnMenuItem = new ToolStripMenuItem();
             mainPanel = new Panel();
             LayoutPanelMain = new TableLayoutPanel();
             headerPanel.SuspendLayout();
@@ -86,7 +88,7 @@
             // 
             // cadastrosToolStripMenuItem1
             // 
-            cadastrosToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { cadastroUsuarioBtnMenuItem, cadastroPerfilBtnMenuItem, cadastroJardimBtnMenuItem, plantaToolStripMenuItem, produtoToolStripMenuItem, cronogramaToolStripMenuItem, trabalhoToolStripMenuItem });
+            cadastrosToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { cadastroUsuarioBtnMenuItem, cadastroJardimBtnMenuItem, cadastroPlantaBtnMenuItem, cadastroProdutoBtnMenuItem, trabalhoToolStripMenuItem });
             cadastrosToolStripMenuItem1.Name = "cadastrosToolStripMenuItem1";
             cadastrosToolStripMenuItem1.Size = new Size(180, 26);
             cadastrosToolStripMenuItem1.Text = "Cadastros";
@@ -98,12 +100,6 @@
             cadastroUsuarioBtnMenuItem.Text = "Usuario";
             cadastroUsuarioBtnMenuItem.Click += usuarioBtnMenuItem_Click;
             // 
-            // cadastroPerfilBtnMenuItem
-            // 
-            cadastroPerfilBtnMenuItem.Name = "cadastroPerfilBtnMenuItem";
-            cadastroPerfilBtnMenuItem.Size = new Size(180, 26);
-            cadastroPerfilBtnMenuItem.Text = "Perfil";
-            // 
             // cadastroJardimBtnMenuItem
             // 
             cadastroJardimBtnMenuItem.Name = "cadastroJardimBtnMenuItem";
@@ -111,25 +107,19 @@
             cadastroJardimBtnMenuItem.Text = "Jardim";
             cadastroJardimBtnMenuItem.Click += jardimBtnMenuItem_Click;
             // 
-            // plantaToolStripMenuItem
+            // cadastroPlantaBtnMenuItem
             // 
-            plantaToolStripMenuItem.Name = "plantaToolStripMenuItem";
-            plantaToolStripMenuItem.Size = new Size(180, 26);
-            plantaToolStripMenuItem.Text = "Planta";
-            plantaToolStripMenuItem.Click += plantaBtnMenuItem_Click;
+            cadastroPlantaBtnMenuItem.Name = "cadastroPlantaBtnMenuItem";
+            cadastroPlantaBtnMenuItem.Size = new Size(180, 26);
+            cadastroPlantaBtnMenuItem.Text = "Planta";
+            cadastroPlantaBtnMenuItem.Click += plantaBtnMenuItem_Click;
             // 
-            // produtoToolStripMenuItem
+            // cadastroProdutoBtnMenuItem
             // 
-            produtoToolStripMenuItem.Name = "produtoToolStripMenuItem";
-            produtoToolStripMenuItem.Size = new Size(180, 26);
-            produtoToolStripMenuItem.Text = "Produto";
-            produtoToolStripMenuItem.Click += produtoBtnMenuItem_Click;
-            // 
-            // cronogramaToolStripMenuItem
-            // 
-            cronogramaToolStripMenuItem.Name = "cronogramaToolStripMenuItem";
-            cronogramaToolStripMenuItem.Size = new Size(180, 26);
-            cronogramaToolStripMenuItem.Text = "Cronograma";
+            cadastroProdutoBtnMenuItem.Name = "cadastroProdutoBtnMenuItem";
+            cadastroProdutoBtnMenuItem.Size = new Size(180, 26);
+            cadastroProdutoBtnMenuItem.Text = "Produto";
+            cadastroProdutoBtnMenuItem.Click += produtoBtnMenuItem_Click;
             // 
             // trabalhoToolStripMenuItem
             // 
@@ -139,9 +129,37 @@
             // 
             // consultasToolStripMenuItem
             // 
+            consultasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { consultaUsuarioBtnMenuItem, consultaPlantaBtnMenuItem, consultaProdutoBtnMenuItem, consultaCronogramaBtnMenuItem });
             consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             consultasToolStripMenuItem.Size = new Size(180, 26);
             consultasToolStripMenuItem.Text = "Consultas";
+            // 
+            // consultaUsuarioBtnMenuItem
+            // 
+            consultaUsuarioBtnMenuItem.Name = "consultaUsuarioBtnMenuItem";
+            consultaUsuarioBtnMenuItem.Size = new Size(180, 26);
+            consultaUsuarioBtnMenuItem.Text = "Usuario";
+            consultaUsuarioBtnMenuItem.Click += usuarioToolStripMenuItem_Click;
+            // 
+            // consultaPlantaBtnMenuItem
+            // 
+            consultaPlantaBtnMenuItem.Name = "consultaPlantaBtnMenuItem";
+            consultaPlantaBtnMenuItem.Size = new Size(180, 26);
+            consultaPlantaBtnMenuItem.Text = "Planta";
+            consultaPlantaBtnMenuItem.Click += consultaPlantaBtnMenuItem_Click;
+            // 
+            // consultaProdutoBtnMenuItem
+            // 
+            consultaProdutoBtnMenuItem.Name = "consultaProdutoBtnMenuItem";
+            consultaProdutoBtnMenuItem.Size = new Size(180, 26);
+            consultaProdutoBtnMenuItem.Text = "Produto";
+            consultaProdutoBtnMenuItem.Click += consultaProdutoBtnMenuItem_Click;
+            // 
+            // consultaCronogramaBtnMenuItem
+            // 
+            consultaCronogramaBtnMenuItem.Name = "consultaCronogramaBtnMenuItem";
+            consultaCronogramaBtnMenuItem.Size = new Size(180, 26);
+            consultaCronogramaBtnMenuItem.Text = "Cronograma";
             // 
             // mainPanel
             // 
@@ -202,11 +220,13 @@
         private ToolStripMenuItem cadastrosToolStripMenuItem1;
         private ToolStripMenuItem consultasToolStripMenuItem;
         private ToolStripMenuItem cadastroUsuarioBtnMenuItem;
-        private ToolStripMenuItem cadastroPerfilBtnMenuItem;
         private ToolStripMenuItem cadastroJardimBtnMenuItem;
-        private ToolStripMenuItem plantaToolStripMenuItem;
-        private ToolStripMenuItem produtoToolStripMenuItem;
-        private ToolStripMenuItem cronogramaToolStripMenuItem;
+        private ToolStripMenuItem cadastroPlantaBtnMenuItem;
+        private ToolStripMenuItem cadastroProdutoBtnMenuItem;
         private ToolStripMenuItem trabalhoToolStripMenuItem;
+        private ToolStripMenuItem consultaUsuarioBtnMenuItem;
+        private ToolStripMenuItem consultaPlantaBtnMenuItem;
+        private ToolStripMenuItem consultaProdutoBtnMenuItem;
+        private ToolStripMenuItem consultaCronogramaBtnMenuItem;
     }
 }

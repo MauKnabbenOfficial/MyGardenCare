@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             lblNome = new Label();
             txtNome = new TextBox();
             lblApelido = new Label();
@@ -37,13 +39,15 @@
             lblH1 = new Label();
             btnSave = new Button();
             panel1 = new Panel();
+            btnFechar = new Button();
             panel2 = new Panel();
+            btnAddCuidado = new Button();
             label2 = new Label();
             dgvCuidados = new DataGridView();
             DescricaoCuidado = new DataGridViewTextBoxColumn();
             ObservacoesCuidado = new DataGridViewTextBoxColumn();
             Periodicidade = new DataGridViewTextBoxColumn();
-            btnAddCuidado = new Button();
+            btnAddCuidado1 = new Button();
             label6 = new Label();
             label4 = new Label();
             label5 = new Label();
@@ -119,21 +123,22 @@
             // 
             // lblH1
             // 
-            lblH1.AutoSize = true;
             lblH1.BackColor = Color.YellowGreen;
+            lblH1.Dock = DockStyle.Top;
             lblH1.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblH1.ForeColor = Color.DarkOliveGreen;
-            lblH1.Location = new Point(155, 9);
+            lblH1.Location = new Point(0, 0);
             lblH1.Name = "lblH1";
-            lblH1.Size = new Size(449, 50);
+            lblH1.Size = new Size(800, 50);
             lblH1.TabIndex = 6;
             lblH1.Text = "CADASTRO DE PLANTAS";
+            lblH1.TextAlign = ContentAlignment.TopCenter;
             // 
             // btnSave
             // 
             btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnSave.ForeColor = Color.DarkOliveGreen;
-            btnSave.Location = new Point(688, 653);
+            btnSave.Location = new Point(582, 653);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(100, 31);
             btnSave.TabIndex = 7;
@@ -145,6 +150,7 @@
             // 
             panel1.AutoSize = true;
             panel1.BackColor = Color.SeaGreen;
+            panel1.Controls.Add(btnFechar);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(dataPlantio);
             panel1.Controls.Add(txtObservacoes);
@@ -161,12 +167,25 @@
             panel1.Size = new Size(800, 696);
             panel1.TabIndex = 8;
             // 
+            // btnFechar
+            // 
+            btnFechar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnFechar.ForeColor = Color.DarkOliveGreen;
+            btnFechar.Location = new Point(688, 653);
+            btnFechar.Name = "btnFechar";
+            btnFechar.Size = new Size(100, 31);
+            btnFechar.TabIndex = 13;
+            btnFechar.Text = "FECHAR";
+            btnFechar.UseVisualStyleBackColor = true;
+            btnFechar.Click += btnFechar_Click;
+            // 
             // panel2
             // 
             panel2.BackColor = Color.DarkGreen;
+            panel2.Controls.Add(btnAddCuidado);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(dgvCuidados);
-            panel2.Controls.Add(btnAddCuidado);
+            panel2.Controls.Add(btnAddCuidado1);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(label5);
@@ -178,6 +197,18 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(776, 372);
             panel2.TabIndex = 12;
+            // 
+            // btnAddCuidado
+            // 
+            btnAddCuidado.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnAddCuidado.ForeColor = Color.DarkOliveGreen;
+            btnAddCuidado.Location = new Point(417, 170);
+            btnAddCuidado.Name = "btnAddCuidado";
+            btnAddCuidado.Size = new Size(168, 36);
+            btnAddCuidado.TabIndex = 30;
+            btnAddCuidado.Text = "Adicionar Cuidado";
+            btnAddCuidado.UseVisualStyleBackColor = true;
+            btnAddCuidado.Click += btnAddCuidado_Click;
             // 
             // label2
             // 
@@ -194,8 +225,24 @@
             // 
             dgvCuidados.BackgroundColor = Color.DarkGreen;
             dgvCuidados.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvCuidados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvCuidados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCuidados.Columns.AddRange(new DataGridViewColumn[] { DescricaoCuidado, ObservacoesCuidado, Periodicidade });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvCuidados.DefaultCellStyle = dataGridViewCellStyle2;
             dgvCuidados.GridColor = Color.DarkGreen;
             dgvCuidados.Location = new Point(12, 227);
             dgvCuidados.Name = "dgvCuidados";
@@ -207,29 +254,33 @@
             DescricaoCuidado.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             DescricaoCuidado.HeaderText = "Descrição";
             DescricaoCuidado.Name = "DescricaoCuidado";
-            DescricaoCuidado.Width = 83;
+            DescricaoCuidado.Width = 102;
             // 
             // ObservacoesCuidado
             // 
+            ObservacoesCuidado.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             ObservacoesCuidado.HeaderText = "Observações";
             ObservacoesCuidado.Name = "ObservacoesCuidado";
+            ObservacoesCuidado.Width = 124;
             // 
             // Periodicidade
             // 
+            Periodicidade.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             Periodicidade.HeaderText = "Periodicidade";
             Periodicidade.Name = "Periodicidade";
+            Periodicidade.Width = 128;
             // 
-            // btnAddCuidado
+            // btnAddCuidado1
             // 
-            btnAddCuidado.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnAddCuidado.ForeColor = Color.DarkOliveGreen;
-            btnAddCuidado.Location = new Point(591, 170);
-            btnAddCuidado.Name = "btnAddCuidado";
-            btnAddCuidado.Size = new Size(168, 36);
-            btnAddCuidado.TabIndex = 28;
-            btnAddCuidado.Text = "Adicionar Cuidado";
-            btnAddCuidado.UseVisualStyleBackColor = true;
-            btnAddCuidado.Click += btnAddCuidado_Click;
+            btnAddCuidado1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnAddCuidado1.ForeColor = Color.DarkOliveGreen;
+            btnAddCuidado1.Location = new Point(591, 170);
+            btnAddCuidado1.Name = "btnAddCuidado1";
+            btnAddCuidado1.Size = new Size(168, 36);
+            btnAddCuidado1.TabIndex = 28;
+            btnAddCuidado1.Text = "Remover Cuidado";
+            btnAddCuidado1.UseVisualStyleBackColor = true;
+            btnAddCuidado1.Click += btnRemoveCuidado_Click;
             // 
             // label6
             // 
@@ -365,13 +416,15 @@
         private Label label3;
         private TextBox txtObservacoesCuidado;
         private TextBox txtDescricaoCuidado;
-        private Button btnAddCuidado;
+        private Button btnAddCuidado1;
         private Label label6;
         private Label label4;
         private Label label5;
         private DataGridView dgvCuidados;
+        private Button btnFechar;
         private DataGridViewTextBoxColumn DescricaoCuidado;
         private DataGridViewTextBoxColumn ObservacoesCuidado;
         private DataGridViewTextBoxColumn Periodicidade;
+        private Button btnAddCuidado;
     }
 }

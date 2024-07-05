@@ -1,6 +1,7 @@
 ﻿using ProjetoTematico.Garden;
 using ProjetoTematico.Plant;
 using ProjetoTematico.Product;
+using ProjetoTematico.User;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +21,7 @@ namespace ProjetoTematico
             InitializeComponent();
         }
 
-        private void usuarioBtnMenuItem_Click(object sender, EventArgs e)
+        public void usuarioBtnMenuItem_Click(object sender, EventArgs e)
         {
             this.mainPanel.Controls.Clear();
 
@@ -78,6 +79,48 @@ namespace ProjetoTematico
             this.mainPanel.Controls.Add(gardenForm);
 
             gardenForm.Show();
+        }
+
+        private void usuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.mainPanel.Controls.Clear();
+
+            UserGridForm userGridForm = new UserGridForm
+            {
+                TopLevel = false,
+                Dock = DockStyle.Fill,
+            };
+
+            this.mainPanel.Controls.Add(userGridForm);
+            userGridForm.Show();
+        }
+
+        private void consultaPlantaBtnMenuItem_Click(object sender, EventArgs e)
+        {
+            this.mainPanel.Controls.Clear();
+
+            PlantGridForm plantGridForm = new PlantGridForm
+            {
+                TopLevel = false,
+                Dock = DockStyle.Fill,
+            };
+
+            this.mainPanel.Controls.Add(plantGridForm);
+            plantGridForm.Show();
+        }
+
+        private void consultaProdutoBtnMenuItem_Click(object sender, EventArgs e)
+        {
+            this.mainPanel.Controls.Clear();
+
+            ProductGridForm productGridForm = new ProductGridForm
+            {
+                TopLevel = false,
+                Dock = DockStyle.Fill,
+            };
+
+            this.mainPanel.Controls.Add(productGridForm);
+            productGridForm.Show();
         }
     }
 }
