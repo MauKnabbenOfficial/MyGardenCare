@@ -1,4 +1,5 @@
 ﻿using ProjetoTematico.Controllers;
+using ProjetoTematico.Domain;
 using ProjetoTematico.Dto;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace ProjetoTematico.Plant
     public partial class PlantForm : BaseControl
     {
         PlantController _controle;
+        PlantDto _plant;
         List<CareDto> _cuidados = new List<CareDto>();
         public PlantForm()
         {
@@ -23,64 +25,83 @@ namespace ProjetoTematico.Plant
         }
         public PlantForm(int id) : this()
         {
-            //var plant = _controle.GetById(id);
-            var plantas = new List<PlantDto>();
-            plantas.Add(new PlantDto()
-            {
-                Id = 1,
-                Nome = "Samambaia",
-                DataPlantio = DateTime.Now,
-            });
-            plantas.Add(new PlantDto()
-            {
-                Id = 2,
-                Nome = "Palmeira",
-                DataPlantio = DateTime.Now.AddDays(1),
-            });
-            plantas.Add(new PlantDto()
-            {
-                Id = 3,
-                Nome = "Flor",
-                DataPlantio = DateTime.Now.AddDays(-1),
-            });
+            _plant = _controle.GetById(id);
 
-            PopularCampos(plantas.Find(p => p.Id == id));
+            PopularCampos();
         }
-        private void PopularCampos(PlantDto plant)
+        private void PopularCampos()
         {
-            this.txtNome.Text = plant.Nome;
-            this.txtApelido.Text = plant.Apelido;
-            this.txtObservacoes.Text = plant.Observacoes;
-            this.dataPlantio.Value = plant.DataPlantio;
+            this.txtNome.Text = _plant.Nome;
+            this.txtApelido.Text = _plant.Apelido;
+            this.txtObservacoes.Text = _plant.Observacoes;
+            this.dataPlantio.Value = _plant.DataPlantio;
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
             var Nome = this.txtNome.Text;
             var Apelido = this.txtApelido.Text;
             var Observacoes = this.txtObservacoes.Text;
-            var DataPlantio = this.dataPlantio.Value;
+            var DataPlantio = this.dataPlantio.Value;            
 
             try
             {
                 PlantDto newPlant = new PlantDto
                 {
+                    Id = _plant?.Id ?? 0,
                     Nome = Nome,
                     Apelido = Apelido,
                     Observacoes = Observacoes,
                     DataPlantio = DataPlantio
                 };
 
-                _controle.CreatePlant(newPlant);
-
-                MessageBox.Show("Planta cadastrado com sucesso!", "SUCESSO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                var cuidados = new List<CareDto>();
+                for (int i = 0; i < dgvCuidados.Rows.Count; i++)
+                {
+                    cuidados.Add(new CareDto()
+                    {
+                        Descricao = dgvCuidados[0, i].Value.ToString(),
+                        Observacao = dgvCuidados[1, i].Value.ToString(),
+                        IndPeriodicidade = retornaPeriodicidade(dgvCuidados[2, i].Value),
+                        //Planta = newPlant.MapTo<Domain.Plant>()
+                    });
+                }
+                if (_plant != null)
+                {
+                    _controle.UpdatePlant(newPlant);
+                    MessageBox.Show("Planta atualizada com sucesso!", "SUCESSO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    _controle.CreatePlant(newPlant);
+                    MessageBox.Show("Planta cadastrado com sucesso!", "SUCESSO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ocorreu um Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        private int retornaPeriodicidade(object celula)
+        {
+            if (celula.ToString().CompareTo("Diário") == 0)
+            {
+                //Diario
+                return 0;
+            }
+            if (celula.ToString().CompareTo("Semanal") == 0)
+            {
+                //Semanal
+                return 1;
+            }
+            if (celula.ToString().CompareTo("Quinzenal") == 0)
+            {
+                //Quinzenal
+                return 2;
+            }
+            //Mensal
+            return 3;
 
+        }
         private void btnAddCuidado_Click(object sender, EventArgs e)
         {
             CareDto newCare = new CareDto

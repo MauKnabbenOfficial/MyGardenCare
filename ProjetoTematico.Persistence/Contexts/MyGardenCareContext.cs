@@ -1,9 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using Microsoft.Extensions.Logging;
 using ProjetoTematico.Domain;
+using ProjetoTematico.Persistence.Migrations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,6 +28,7 @@ namespace ProjetoTematico.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -32,11 +36,11 @@ namespace ProjetoTematico.Persistence
             base.OnConfiguring(optionsBuilder);
 
             string outputPath = Directory.GetCurrentDirectory();
-            string databasePath = Path.Combine(outputPath, "teste.db");
+            string databasePath = Path.Combine(outputPath, "banco.db");
             optionsBuilder.UseSqlite($"Data Source={databasePath}");
 
             //optionsBuilder.UseSqlite("Data Source=./database/teste.db");
-            optionsBuilder.LogTo(Console.WriteLine, LogLevel.Information);
+            optionsBuilder.LogTo(Console.WriteLine, LogLevel.Information);                                    
         }
     }
 }

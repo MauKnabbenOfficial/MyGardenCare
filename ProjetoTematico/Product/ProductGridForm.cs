@@ -20,36 +20,32 @@ namespace ProjetoTematico.Product
         public ProductGridForm()
         {
             InitializeComponent();
+            _controle = new ProductController();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (dgvProdutos.CurrentRow.Cells[0].Value != null)
             {
-                var planta = int.Parse(dgvProdutos.CurrentRow.Cells[0].Value.ToString());
-                ProductForm productForm = new ProductForm(planta)
+                var id = int.Parse(dgvProdutos.CurrentRow.Cells[0].Value.ToString());
+                ProductForm productForm = new ProductForm(id)
                 {
                     TopLevel = true,
                     Dock = DockStyle.Fill,
                     FormBorderStyle = FormBorderStyle.FixedSingle,
-                    Text = $"Editar Produto {planta}"
+                    Text = $"Editar Produto {id}"
                 };
 
                 productForm.Show();
+                ProductGridForm_Load(sender, e);
             }
         }
 
         private void ProductGridForm_Load(object sender, EventArgs e)
         {
-            //var produtos = _controle.GetAll();
-            var produtos = new List<ProductDto>();
-            produtos.Add(new ProductDto()
-            {
-                Id = 1,
-                Nome = "Adubo Premium",
-                Observacoes = "Proporção 1:10; Manusear com Cuidado",
-                QtdEstoque = 10
-            });
+            dgvProdutos.Rows.Clear();
+
+            var produtos = _controle.GetAll();            
             produtos.ForEach(p =>
             {
                 dgvProdutos.Rows.Add(p.Id, p.Nome, p.QtdEstoque, p.Observacoes);

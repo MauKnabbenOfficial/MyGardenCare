@@ -15,6 +15,7 @@ namespace ProjetoTematico.Product
     public partial class ProductForm : Form
     {
         ProductController _controle;
+        ProductDto _product;
         public ProductForm()
         {
             _controle = new ProductController();
@@ -22,21 +23,14 @@ namespace ProjetoTematico.Product
         }
         public ProductForm(int id) : this()
         {
-            //var product = _controle.GetById(id);
-            var product = new ProductDto()
-            {
-                Id = id,
-                Nome = "Adubo",
-                Observacoes = "Manusear com luvas",
-                QtdEstoque = 10
-            };
-            popularCampos(product);
+            _product = _controle.GetById(id);
+            PopularCampos();
         }
-        private void popularCampos(ProductDto product)
+        private void PopularCampos()
         {
-            this.txtNome.Text = product.Nome;
-            this.qtdEstoque.Text = product.QtdEstoque.ToString();
-            this.txtObservacoes.Text = product.Observacoes;
+            this.txtNome.Text = _product.Nome;
+            this.qtdEstoque.Text = _product.QtdEstoque.ToString();
+            this.txtObservacoes.Text = _product.Observacoes;
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -48,22 +42,35 @@ namespace ProjetoTematico.Product
             {
                 ProductDto newProduct = new ProductDto
                 {
+                    Id = _product?.Id ?? 0,
                     Nome = Nome,
                     QtdEstoque = int.Parse(QtdEstoque),
                     Observacoes = Observacoes
                 };
 
-                _controle.CreateProduct(newProduct);
-
-                MessageBox.Show("Planta cadastrado com sucesso!", "SUCESSO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                if (_product != null)
+                {
+                    _controle.UpdateProduct(newProduct);
+                    MessageBox.Show("Produto atualizado com sucesso!", "SUCESSO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    _controle.CreateProduct(newProduct);
+                    MessageBox.Show("Produto cadastrado com sucesso!", "SUCESSO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimparCampos();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ocorreu um Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
+        private void LimparCampos()
+        {
+            this.txtNome.Clear();
+            this.txtObservacoes.Clear();
+            this.qtdEstoque.Clear();
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();

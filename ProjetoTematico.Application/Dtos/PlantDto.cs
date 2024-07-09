@@ -1,4 +1,5 @@
 ﻿using ProjetoTematico.Domain;
+using ProjetoTematico.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,10 +19,12 @@ public class PlantDto : BaseDto
         Apelido = plant.Apelido;
         Observacoes = plant.Observacoes;
         DataPlantio = plant.DataPlantio;
+        Cuidados = plant.Cuidados;
     }
     public int? AccessProfileId { get; set; }
     public string Nome { get; set; }
     public string Apelido { get; set; }
     public string Observacoes { get; set; }
     public DateTime DataPlantio { get; set; }
+    public List<Care> Cuidados { get; set; }
 }

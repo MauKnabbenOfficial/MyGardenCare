@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjetoTematico.Persistence;
 
@@ -10,9 +11,11 @@ using ProjetoTematico.Persistence;
 namespace ProjetoTematico.Persistence.Migrations
 {
     [DbContext(typeof(MyGardenCareContext))]
-    partial class MyGardenCareContextModelSnapshot : ModelSnapshot
+    [Migration("20240706181447_AjusteGarden")]
+    partial class AjusteGarden
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.4");
@@ -48,12 +51,7 @@ namespace ProjetoTematico.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("PlantId")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("PlantId");
 
                     b.ToTable("Cares");
                 });
@@ -116,17 +114,6 @@ namespace ProjetoTematico.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Observacoes")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("QtdEstoque")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("Id");
 
                     b.ToTable("Products");
@@ -156,10 +143,6 @@ namespace ProjetoTematico.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -183,46 +166,9 @@ namespace ProjetoTematico.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CareId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime?>("DataRealizacao")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int?>("IdUsuarioRealizador")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("Realizada")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("CareId");
-
                     b.ToTable("Works");
-                });
-
-            modelBuilder.Entity("ProjetoTematico.Domain.Care", b =>
-                {
-                    b.HasOne("ProjetoTematico.Domain.Plant", null)
-                        .WithMany("Cuidados")
-                        .HasForeignKey("PlantId");
-                });
-
-            modelBuilder.Entity("ProjetoTematico.Domain.Works", b =>
-                {
-                    b.HasOne("ProjetoTematico.Domain.Care", "Care")
-                        .WithMany()
-                        .HasForeignKey("CareId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Care");
-                });
-
-            modelBuilder.Entity("ProjetoTematico.Domain.Plant", b =>
-                {
-                    b.Navigation("Cuidados");
                 });
 #pragma warning restore 612, 618
         }

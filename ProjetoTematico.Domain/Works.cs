@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,4 +12,9 @@ public class Works : BaseModel
 {
     [Key]
     public int Id { get; set; }
+    public bool Realizada { get; set; }
+    public DateTime? DataRealizacao { get; set; }
+    public int? IdUsuarioRealizador { get; set; }
+    public Care Care { get; set; }
+
 }

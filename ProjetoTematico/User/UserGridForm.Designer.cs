@@ -69,6 +69,7 @@
             dgvUsuarios.Columns.AddRange(new DataGridViewColumn[] { Id, Nome, Email, Administrador });
             dgvUsuarios.Location = new Point(12, 70);
             dgvUsuarios.Name = "dgvUsuarios";
+            dgvUsuarios.RowHeadersVisible = false;
             dgvUsuarios.Size = new Size(442, 318);
             dgvUsuarios.TabIndex = 28;
             // 
@@ -117,6 +118,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "UserGridForm";
             Text = "UserGridForm";
+            Load += UserGridForm_Load;
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -17,4 +17,5 @@ public class ScheduleController : BaseController
     public int CreateSchedule(ScheduleDto dto) => _service.Create(dto);
     public ScheduleDto UpdateSchedule(ScheduleDto dto) => _service.Update(dto);
     public bool DeleteSchedule(int id) => _service.Delete(id);
+    public List<ScheduleDto> GenerateSchedule(DateTime dateI, DateTime dateF) => _service.GenerateSchedule(dateI, dateF);
 }

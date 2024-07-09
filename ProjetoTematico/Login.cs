@@ -26,13 +26,12 @@ namespace ProjetoTematico
                     Senha = password
                 };
 
-                //var login = _controle.DoLogin(user);
-                var login = new LoginDto();
+                var login = _controle.DoLogin(user);
 
                 if (login is not null)
                 {
                     this.Hide();
-                    Main formMain = new Main();
+                    Main formMain = new Main(login);
                     formMain.ShowDialog();
                     this.Close();
                 }
@@ -42,6 +41,14 @@ namespace ProjetoTematico
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ocorreu um Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                this.btnLogin_Click(sender, e);
             }
         }
     }

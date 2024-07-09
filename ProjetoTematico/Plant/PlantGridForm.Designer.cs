@@ -57,6 +57,7 @@
             dgvPlantas.Columns.AddRange(new DataGridViewColumn[] { Id, Nome, DataPlantio });
             dgvPlantas.Location = new Point(12, 76);
             dgvPlantas.Name = "dgvPlantas";
+            dgvPlantas.RowHeadersVisible = false;
             dgvPlantas.Size = new Size(404, 362);
             dgvPlantas.TabIndex = 31;
             // 

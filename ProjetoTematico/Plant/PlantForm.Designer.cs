@@ -64,6 +64,7 @@
             // 
             // lblNome
             // 
+            lblNome.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblNome.AutoSize = true;
             lblNome.BackColor = Color.SeaGreen;
             lblNome.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
@@ -76,6 +77,7 @@
             // 
             // txtNome
             // 
+            txtNome.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtNome.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             txtNome.Location = new Point(128, 105);
             txtNome.Name = "txtNome";
@@ -84,6 +86,7 @@
             // 
             // lblApelido
             // 
+            lblApelido.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblApelido.AutoSize = true;
             lblApelido.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblApelido.ForeColor = Color.White;
@@ -95,6 +98,7 @@
             // 
             // txtApelido
             // 
+            txtApelido.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtApelido.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             txtApelido.Location = new Point(128, 142);
             txtApelido.Name = "txtApelido";
@@ -103,6 +107,7 @@
             // 
             // lblObservacoes
             // 
+            lblObservacoes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblObservacoes.AutoSize = true;
             lblObservacoes.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblObservacoes.ForeColor = Color.White;
@@ -114,6 +119,7 @@
             // 
             // txtObservacoes
             // 
+            txtObservacoes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtObservacoes.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             txtObservacoes.Location = new Point(128, 180);
             txtObservacoes.Multiline = true;
@@ -136,6 +142,8 @@
             // 
             // btnSave
             // 
+            btnSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnSave.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnSave.ForeColor = Color.DarkOliveGreen;
             btnSave.Location = new Point(582, 653);
@@ -148,7 +156,8 @@
             // 
             // panel1
             // 
-            panel1.AutoSize = true;
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel1.BackColor = Color.SeaGreen;
             panel1.Controls.Add(btnFechar);
             panel1.Controls.Add(panel2);
@@ -161,7 +170,6 @@
             panel1.Controls.Add(btnSave);
             panel1.Controls.Add(lblNome);
             panel1.Controls.Add(lblApelido);
-            panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 696);
@@ -169,6 +177,8 @@
             // 
             // btnFechar
             // 
+            btnFechar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnFechar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnFechar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnFechar.ForeColor = Color.DarkOliveGreen;
             btnFechar.Location = new Point(688, 653);
@@ -181,6 +191,8 @@
             // 
             // panel2
             // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel2.BackColor = Color.DarkGreen;
             panel2.Controls.Add(btnAddCuidado);
             panel2.Controls.Add(label2);
@@ -200,6 +212,8 @@
             // 
             // btnAddCuidado
             // 
+            btnAddCuidado.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnAddCuidado.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnAddCuidado.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnAddCuidado.ForeColor = Color.DarkOliveGreen;
             btnAddCuidado.Location = new Point(417, 170);
@@ -212,6 +226,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label2.ForeColor = Color.White;
@@ -223,6 +238,7 @@
             // 
             // dgvCuidados
             // 
+            dgvCuidados.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvCuidados.BackgroundColor = Color.DarkGreen;
             dgvCuidados.BorderStyle = BorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -246,7 +262,8 @@
             dgvCuidados.GridColor = Color.DarkGreen;
             dgvCuidados.Location = new Point(12, 227);
             dgvCuidados.Name = "dgvCuidados";
-            dgvCuidados.Size = new Size(738, 128);
+            dgvCuidados.RowHeadersVisible = false;
+            dgvCuidados.Size = new Size(747, 128);
             dgvCuidados.TabIndex = 29;
             // 
             // DescricaoCuidado
@@ -272,6 +289,8 @@
             // 
             // btnAddCuidado1
             // 
+            btnAddCuidado1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnAddCuidado1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnAddCuidado1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnAddCuidado1.ForeColor = Color.DarkOliveGreen;
             btnAddCuidado1.Location = new Point(591, 170);
@@ -284,6 +303,7 @@
             // 
             // label6
             // 
+            label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label6.AutoSize = true;
             label6.ForeColor = Color.White;
             label6.Location = new Point(12, 209);
@@ -294,6 +314,7 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label4.ForeColor = Color.White;
@@ -305,6 +326,7 @@
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label5.AutoSize = true;
             label5.BackColor = Color.DarkGreen;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
@@ -317,6 +339,7 @@
             // 
             // comboPeriodicidade
             // 
+            comboPeriodicidade.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             comboPeriodicidade.Font = new Font("Segoe UI", 12F);
             comboPeriodicidade.FormattingEnabled = true;
             comboPeriodicidade.Items.AddRange(new object[] { "Diário", "Semanal", "Quinzenal", "Mensal" });
@@ -327,6 +350,7 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label3.ForeColor = Color.White;
@@ -338,6 +362,7 @@
             // 
             // txtObservacoesCuidado
             // 
+            txtObservacoesCuidado.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtObservacoesCuidado.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtObservacoesCuidado.Location = new Point(143, 100);
             txtObservacoesCuidado.Multiline = true;
@@ -347,6 +372,7 @@
             // 
             // txtDescricaoCuidado
             // 
+            txtDescricaoCuidado.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtDescricaoCuidado.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             txtDescricaoCuidado.Location = new Point(143, 33);
             txtDescricaoCuidado.Multiline = true;
@@ -356,6 +382,7 @@
             // 
             // dataPlantio
             // 
+            dataPlantio.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataPlantio.CustomFormat = "";
             dataPlantio.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             dataPlantio.Format = DateTimePickerFormat.Short;
@@ -367,6 +394,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label1.ForeColor = Color.White;
@@ -381,6 +409,8 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BackColor = Color.SeaGreen;
             ClientSize = new Size(800, 696);
             ControlBox = false;
             Controls.Add(lblH1);
@@ -394,7 +424,6 @@
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCuidados).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

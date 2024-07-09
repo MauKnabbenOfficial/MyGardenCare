@@ -14,6 +14,7 @@ public class UserController : BaseController
         _service = new UserService(_context);
     }
 
+    public List<UserDto> GetAll() => _service.GetAll();
     public UserDto GetById(int id) => _service.GetById(id);
     public int CreateUser(UserDto dto) => _service.Create(dto);
     public UserDto UpdateUser(UserDto dto) => _service.Update(dto);

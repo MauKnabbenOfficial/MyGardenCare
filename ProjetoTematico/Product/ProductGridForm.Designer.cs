@@ -54,6 +54,8 @@
             // 
             // btnEditar
             // 
+            btnEditar.Anchor = AnchorStyles.Right;
+            btnEditar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnEditar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnEditar.ForeColor = Color.DarkOliveGreen;
             btnEditar.Location = new Point(538, 82);
@@ -72,6 +74,7 @@
             dgvProdutos.Columns.AddRange(new DataGridViewColumn[] { Id, Nome, QtdEstoque, Observacao });
             dgvProdutos.Location = new Point(12, 82);
             dgvProdutos.Name = "dgvProdutos";
+            dgvProdutos.RowHeadersVisible = false;
             dgvProdutos.Size = new Size(520, 362);
             dgvProdutos.TabIndex = 34;
             // 
@@ -100,6 +103,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.SeaGreen;
             ClientSize = new Size(800, 450);
             Controls.Add(label1);

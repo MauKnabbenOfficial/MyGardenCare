@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             menuStrip1 = new MenuStrip();
-            menuToolStripMenuItem = new ToolStripMenuItem();
-            cadastrosToolStripMenuItem1 = new ToolStripMenuItem();
+            menuToolStrip = new ToolStripMenuItem();
+            cadastrosToolStripMenuItem = new ToolStripMenuItem();
             cadastroUsuarioBtnMenuItem = new ToolStripMenuItem();
             cadastroJardimBtnMenuItem = new ToolStripMenuItem();
             cadastroPlantaBtnMenuItem = new ToolStripMenuItem();
             cadastroProdutoBtnMenuItem = new ToolStripMenuItem();
-            trabalhoToolStripMenuItem = new ToolStripMenuItem();
             consultasToolStripMenuItem = new ToolStripMenuItem();
             consultaUsuarioBtnMenuItem = new ToolStripMenuItem();
             consultaPlantaBtnMenuItem = new ToolStripMenuItem();
@@ -43,6 +43,7 @@
             consultaCronogramaBtnMenuItem = new ToolStripMenuItem();
             mainPanel = new Panel();
             LayoutPanelMain = new TableLayoutPanel();
+            btnSair = new Button();
             headerPanel.SuspendLayout();
             footerPanel.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -51,10 +52,14 @@
             // 
             // headerPanel
             // 
+            headerPanel.Controls.Add(btnSair);
             headerPanel.Size = new Size(1016, 50);
+            headerPanel.Controls.SetChildIndex(headerLabel, 0);
+            headerPanel.Controls.SetChildIndex(btnSair, 0);
             // 
             // headerLabel
             // 
+            headerLabel.BackColor = Color.DarkGreen;
             headerLabel.Font = new Font("Segoe UI", 12F);
             headerLabel.Size = new Size(1016, 50);
             // 
@@ -71,95 +76,90 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { menuToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { menuToolStrip });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(130, 29);
             menuStrip1.TabIndex = 2;
             menuStrip1.Text = "menuStrip1";
             // 
-            // menuToolStripMenuItem
+            // menuToolStrip
             // 
-            menuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrosToolStripMenuItem1, consultasToolStripMenuItem });
-            menuToolStripMenuItem.Font = new Font("Segoe UI", 12F);
-            menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            menuToolStripMenuItem.Size = new Size(62, 25);
-            menuToolStripMenuItem.Text = "Menu";
+            menuToolStrip.DropDownItems.AddRange(new ToolStripItem[] { cadastrosToolStripMenuItem, consultasToolStripMenuItem });
+            menuToolStrip.Font = new Font("Segoe UI", 12F);
+            menuToolStrip.Name = "menuToolStrip";
+            menuToolStrip.Size = new Size(62, 25);
+            menuToolStrip.Text = "Menu";
             // 
-            // cadastrosToolStripMenuItem1
+            // cadastrosToolStripMenuItem
             // 
-            cadastrosToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { cadastroUsuarioBtnMenuItem, cadastroJardimBtnMenuItem, cadastroPlantaBtnMenuItem, cadastroProdutoBtnMenuItem, trabalhoToolStripMenuItem });
-            cadastrosToolStripMenuItem1.Name = "cadastrosToolStripMenuItem1";
-            cadastrosToolStripMenuItem1.Size = new Size(180, 26);
-            cadastrosToolStripMenuItem1.Text = "Cadastros";
+            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastroUsuarioBtnMenuItem, cadastroJardimBtnMenuItem, cadastroPlantaBtnMenuItem, cadastroProdutoBtnMenuItem });
+            cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
+            cadastrosToolStripMenuItem.Size = new Size(149, 26);
+            cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
             // cadastroUsuarioBtnMenuItem
             // 
             cadastroUsuarioBtnMenuItem.Name = "cadastroUsuarioBtnMenuItem";
-            cadastroUsuarioBtnMenuItem.Size = new Size(180, 26);
-            cadastroUsuarioBtnMenuItem.Text = "Usuario";
+            cadastroUsuarioBtnMenuItem.Size = new Size(136, 26);
+            cadastroUsuarioBtnMenuItem.Text = "Usuário";
             cadastroUsuarioBtnMenuItem.Click += usuarioBtnMenuItem_Click;
             // 
             // cadastroJardimBtnMenuItem
             // 
             cadastroJardimBtnMenuItem.Name = "cadastroJardimBtnMenuItem";
-            cadastroJardimBtnMenuItem.Size = new Size(180, 26);
+            cadastroJardimBtnMenuItem.Size = new Size(136, 26);
             cadastroJardimBtnMenuItem.Text = "Jardim";
             cadastroJardimBtnMenuItem.Click += jardimBtnMenuItem_Click;
             // 
             // cadastroPlantaBtnMenuItem
             // 
             cadastroPlantaBtnMenuItem.Name = "cadastroPlantaBtnMenuItem";
-            cadastroPlantaBtnMenuItem.Size = new Size(180, 26);
+            cadastroPlantaBtnMenuItem.Size = new Size(136, 26);
             cadastroPlantaBtnMenuItem.Text = "Planta";
             cadastroPlantaBtnMenuItem.Click += plantaBtnMenuItem_Click;
             // 
             // cadastroProdutoBtnMenuItem
             // 
             cadastroProdutoBtnMenuItem.Name = "cadastroProdutoBtnMenuItem";
-            cadastroProdutoBtnMenuItem.Size = new Size(180, 26);
+            cadastroProdutoBtnMenuItem.Size = new Size(136, 26);
             cadastroProdutoBtnMenuItem.Text = "Produto";
             cadastroProdutoBtnMenuItem.Click += produtoBtnMenuItem_Click;
-            // 
-            // trabalhoToolStripMenuItem
-            // 
-            trabalhoToolStripMenuItem.Name = "trabalhoToolStripMenuItem";
-            trabalhoToolStripMenuItem.Size = new Size(180, 26);
-            trabalhoToolStripMenuItem.Text = "Trabalho";
             // 
             // consultasToolStripMenuItem
             // 
             consultasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { consultaUsuarioBtnMenuItem, consultaPlantaBtnMenuItem, consultaProdutoBtnMenuItem, consultaCronogramaBtnMenuItem });
             consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
-            consultasToolStripMenuItem.Size = new Size(180, 26);
+            consultasToolStripMenuItem.Size = new Size(149, 26);
             consultasToolStripMenuItem.Text = "Consultas";
             // 
             // consultaUsuarioBtnMenuItem
             // 
             consultaUsuarioBtnMenuItem.Name = "consultaUsuarioBtnMenuItem";
-            consultaUsuarioBtnMenuItem.Size = new Size(180, 26);
-            consultaUsuarioBtnMenuItem.Text = "Usuario";
+            consultaUsuarioBtnMenuItem.Size = new Size(168, 26);
+            consultaUsuarioBtnMenuItem.Text = "Usuários";
             consultaUsuarioBtnMenuItem.Click += usuarioToolStripMenuItem_Click;
             // 
             // consultaPlantaBtnMenuItem
             // 
             consultaPlantaBtnMenuItem.Name = "consultaPlantaBtnMenuItem";
-            consultaPlantaBtnMenuItem.Size = new Size(180, 26);
-            consultaPlantaBtnMenuItem.Text = "Planta";
+            consultaPlantaBtnMenuItem.Size = new Size(168, 26);
+            consultaPlantaBtnMenuItem.Text = "Plantas";
             consultaPlantaBtnMenuItem.Click += consultaPlantaBtnMenuItem_Click;
             // 
             // consultaProdutoBtnMenuItem
             // 
             consultaProdutoBtnMenuItem.Name = "consultaProdutoBtnMenuItem";
-            consultaProdutoBtnMenuItem.Size = new Size(180, 26);
-            consultaProdutoBtnMenuItem.Text = "Produto";
+            consultaProdutoBtnMenuItem.Size = new Size(168, 26);
+            consultaProdutoBtnMenuItem.Text = "Produtos";
             consultaProdutoBtnMenuItem.Click += consultaProdutoBtnMenuItem_Click;
             // 
             // consultaCronogramaBtnMenuItem
             // 
             consultaCronogramaBtnMenuItem.Name = "consultaCronogramaBtnMenuItem";
-            consultaCronogramaBtnMenuItem.Size = new Size(180, 26);
+            consultaCronogramaBtnMenuItem.Size = new Size(168, 26);
             consultaCronogramaBtnMenuItem.Text = "Cronograma";
+            consultaCronogramaBtnMenuItem.Click += consultaCronogramaBtnMenuItem_Click;
             // 
             // mainPanel
             // 
@@ -168,7 +168,7 @@
             mainPanel.Dock = DockStyle.Fill;
             mainPanel.Location = new Point(133, 3);
             mainPanel.Name = "mainPanel";
-            mainPanel.Size = new Size(880, 518);
+            mainPanel.Size = new Size(880, 538);
             mainPanel.TabIndex = 3;
             // 
             // LayoutPanelMain
@@ -181,11 +181,22 @@
             LayoutPanelMain.Dock = DockStyle.Fill;
             LayoutPanelMain.Location = new Point(0, 50);
             LayoutPanelMain.Name = "LayoutPanelMain";
-            LayoutPanelMain.RowCount = 2;
+            LayoutPanelMain.RowCount = 1;
             LayoutPanelMain.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            LayoutPanelMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             LayoutPanelMain.Size = new Size(1016, 544);
             LayoutPanelMain.TabIndex = 0;
+            // 
+            // btnSair
+            // 
+            btnSair.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnSair.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnSair.Location = new Point(945, 9);
+            btnSair.Name = "btnSair";
+            btnSair.Size = new Size(59, 32);
+            btnSair.TabIndex = 0;
+            btnSair.Text = "Sair";
+            btnSair.UseVisualStyleBackColor = true;
+            btnSair.Click += button1_Click;
             // 
             // Main
             // 
@@ -194,6 +205,7 @@
             AutoSize = true;
             ClientSize = new Size(1016, 624);
             Controls.Add(LayoutPanelMain);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             Name = "Main";
             SizeGripStyle = SizeGripStyle.Hide;
@@ -214,19 +226,19 @@
         #endregion
 
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem menuToolStripMenuItem;
+        private ToolStripMenuItem menuToolStrip;
         private Panel mainPanel;
         private TableLayoutPanel LayoutPanelMain;
-        private ToolStripMenuItem cadastrosToolStripMenuItem1;
+        private ToolStripMenuItem cadastrosToolStripMenuItem;
         private ToolStripMenuItem consultasToolStripMenuItem;
         private ToolStripMenuItem cadastroUsuarioBtnMenuItem;
         private ToolStripMenuItem cadastroJardimBtnMenuItem;
         private ToolStripMenuItem cadastroPlantaBtnMenuItem;
         private ToolStripMenuItem cadastroProdutoBtnMenuItem;
-        private ToolStripMenuItem trabalhoToolStripMenuItem;
         private ToolStripMenuItem consultaUsuarioBtnMenuItem;
         private ToolStripMenuItem consultaPlantaBtnMenuItem;
         private ToolStripMenuItem consultaProdutoBtnMenuItem;
         private ToolStripMenuItem consultaCronogramaBtnMenuItem;
+        private Button btnSair;
     }
 }

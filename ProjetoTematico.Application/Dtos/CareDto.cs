@@ -20,4 +20,5 @@ public class CareDto : BaseDto
     public string Descricao { get; set; }
     public string Observacao { get; set; }
     public int IndPeriodicidade { get; set; }
+    public Plant Planta { get; set; }
 }

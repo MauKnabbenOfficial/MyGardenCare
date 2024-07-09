@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProjetoTematico.Controllers;
+using ProjetoTematico.Dto;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,27 +14,43 @@ namespace ProjetoTematico.User
 {
     public partial class UserGridForm : Form
     {
-        public UserGridForm()
+        UserController _controller;
+        UserDto _usuarioLogado;
+        public UserGridForm(UserDto usuarioLogado)
         {
             InitializeComponent();
+            _controller = new UserController();
 
-            dgvUsuarios.Rows.Add("1","teste","teste@teste.com");
+            _usuarioLogado = usuarioLogado;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (dgvUsuarios.CurrentRow.Cells[0].Value != null)
             {
-                var usuario = int.Parse(dgvUsuarios.CurrentRow.Cells[0].Value.ToString());
-                UserForm usuarioForm = new UserForm(usuario)
+                var id = int.Parse(dgvUsuarios.CurrentRow.Cells[0].Value.ToString());
+                UserForm usuarioForm = new UserForm(_usuarioLogado, id)
                 {
                     TopLevel = true,
                     Dock = DockStyle.Fill,
                     FormBorderStyle = FormBorderStyle.FixedSingle,
-                    Text = $"Editar Usuário {usuario}"
+                    Text = $"Editar Usuário {id}"
                 };
-                
-                usuarioForm.Show();
+
+                usuarioForm.ShowDialog();
+
+                UserGridForm_Load(sender, e);
+            }
+        }
+
+        private void UserGridForm_Load(object sender, EventArgs e)
+        {
+            dgvUsuarios.Rows.Clear();
+
+            var users = _controller.GetAll();
+            foreach (var user in users)
+            {
+                dgvUsuarios.Rows.Add(user.Id, user.Nome, user.Email, user.AccessProfileId == 1 ? "Sim" : "Não");
             }
         }
     }

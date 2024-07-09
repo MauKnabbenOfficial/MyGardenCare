@@ -20,31 +20,12 @@ namespace ProjetoTematico.Plant
         public PlantGridForm()
         {
             InitializeComponent();
+            _controle = new PlantController();
         }
 
         private void PlantGridForm_Load(object sender, EventArgs e)
         {
-            //var plantas = _controle.GetAll();
-            var plantas = new List<PlantDto>();
-            plantas.Add(new PlantDto()
-            {
-                Id = 1,
-                Nome = "Samambaia",
-                DataPlantio = DateTime.Now,
-            });
-            plantas.Add(new PlantDto()
-            {
-                Id = 2,
-                Nome = "Palmeira",
-                DataPlantio = DateTime.Now.AddDays(1),
-            });
-            plantas.Add(new PlantDto()
-            {
-                Id = 3,
-                Nome = "Flor",
-                DataPlantio = DateTime.Now.AddDays(-1),
-            });
-
+            var plantas = _controle.GetAll();            
 
             plantas.ForEach(p =>
             {
@@ -64,7 +45,7 @@ namespace ProjetoTematico.Plant
                     FormBorderStyle = FormBorderStyle.FixedSingle,
                     Text = $"Editar Planta {planta}"
                 };
-                
+
                 plantForm.Show();
             }
 
