@@ -59,7 +59,7 @@
             txtEndereco.Location = new Point(170, 120);
             txtEndereco.Name = "txtEndereco";
             txtEndereco.Size = new Size(532, 29);
-            txtEndereco.TabIndex = 15;
+            txtEndereco.TabIndex = 2;
             // 
             // txtDescricao
             // 
@@ -69,7 +69,7 @@
             txtDescricao.Multiline = true;
             txtDescricao.Name = "txtDescricao";
             txtDescricao.Size = new Size(532, 61);
-            txtDescricao.TabIndex = 14;
+            txtDescricao.TabIndex = 3;
             // 
             // lblObservacoes
             // 
@@ -90,7 +90,7 @@
             txtNome.Location = new Point(170, 85);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(532, 29);
-            txtNome.TabIndex = 13;
+            txtNome.TabIndex = 1;
             // 
             // btnSave
             // 
@@ -101,7 +101,7 @@
             btnSave.Location = new Point(582, 312);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(100, 31);
-            btnSave.TabIndex = 19;
+            btnSave.TabIndex = 4;
             btnSave.Text = "SALVAR";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
@@ -140,7 +140,7 @@
             btnFechar.Location = new Point(688, 312);
             btnFechar.Name = "btnFechar";
             btnFechar.Size = new Size(100, 31);
-            btnFechar.TabIndex = 20;
+            btnFechar.TabIndex = 5;
             btnFechar.Text = "FECHAR";
             btnFechar.UseVisualStyleBackColor = true;
             btnFechar.Click += btnFechar_Click;

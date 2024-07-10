@@ -36,7 +36,7 @@ namespace ProjetoTematico.Product
                     Text = $"Editar Produto {id}"
                 };
 
-                productForm.Show();
+                productForm.ShowDialog();
                 ProductGridForm_Load(sender, e);
             }
         }

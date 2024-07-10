@@ -27,6 +27,16 @@ namespace ProjetoTematico.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //modelBuilder.Entity<Care>()
+            //    .HasOne(p => p.Plant)
+            //    .WithMany(c => c.Cuidados)
+            //    .HasForeignKey(p => p.Id);
+
+            //modelBuilder.Entity<Works>()
+            //    .HasOne(c => c.Care)
+            //    .WithOne(w => w.Work)
+            //    .HasForeignKey<Care>(c => c.Id);
+
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
         }

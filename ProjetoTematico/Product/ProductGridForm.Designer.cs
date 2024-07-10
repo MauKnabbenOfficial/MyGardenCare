@@ -54,7 +54,6 @@
             // 
             // btnEditar
             // 
-            btnEditar.Anchor = AnchorStyles.Right;
             btnEditar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnEditar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnEditar.ForeColor = Color.DarkOliveGreen;

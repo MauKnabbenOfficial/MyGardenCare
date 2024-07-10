@@ -9,12 +9,8 @@ using System.Threading.Tasks;
 namespace ProjetoTematico.Domain;
 
 public class Works : BaseModel
-{
-    [Key]
-    public int Id { get; set; }
-    public bool Realizada { get; set; }
+{    public bool Realizada { get; set; }
     public DateTime? DataRealizacao { get; set; }
     public int? IdUsuarioRealizador { get; set; }
-    public Care Care { get; set; }
-
+    public int CareId { get; set; }
 }

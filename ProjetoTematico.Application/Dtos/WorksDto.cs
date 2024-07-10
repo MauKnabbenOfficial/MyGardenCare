@@ -9,8 +9,8 @@ namespace ProjetoTematico.Dto;
 
 public class WorksDto : BaseDto
 {
-    public DateTime DataRealizacao { get; set; }
+    public DateTime? DataRealizacao { get; set; }
     public bool Realizada { get; set; }
-    public int? IdUsuarioRalizador { get; set; }
-    public Care Care { get; set; }
+    public int? IdUsuarioRealizador { get; set; }
+    public int CareId { get; set; }
 }

@@ -33,7 +33,9 @@
             lblH1 = new Label();
             dgvCronograma = new DataGridView();
             IsFeito = new DataGridViewCheckBoxColumn();
+            PlantId = new DataGridViewTextBoxColumn();
             Planta = new DataGridViewTextBoxColumn();
+            CareId = new DataGridViewTextBoxColumn();
             Atividade = new DataGridViewTextBoxColumn();
             Observacoes = new DataGridViewTextBoxColumn();
             Usuario = new DataGridViewTextBoxColumn();
@@ -75,7 +77,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvCronograma.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvCronograma.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCronograma.Columns.AddRange(new DataGridViewColumn[] { IsFeito, Planta, Atividade, Observacoes, Usuario, DtaRealizacao });
+            dgvCronograma.Columns.AddRange(new DataGridViewColumn[] { IsFeito, PlantId, Planta, CareId, Atividade, Observacoes, Usuario, DtaRealizacao });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
@@ -86,43 +88,61 @@
             dgvCronograma.DefaultCellStyle = dataGridViewCellStyle2;
             dgvCronograma.Location = new Point(12, 163);
             dgvCronograma.Name = "dgvCronograma";
-            dgvCronograma.ReadOnly = true;
             dgvCronograma.RowHeadersVisible = false;
             dgvCronograma.Size = new Size(776, 275);
             dgvCronograma.TabIndex = 8;
+            dgvCronograma.DoubleClick += dgvCronograma_DoubleClick;
             // 
             // IsFeito
             // 
+            IsFeito.FillWeight = 10F;
             IsFeito.HeaderText = "Feito";
             IsFeito.Name = "IsFeito";
             IsFeito.ReadOnly = true;
             // 
+            // PlantId
+            // 
+            PlantId.HeaderText = "PlantId";
+            PlantId.Name = "PlantId";
+            PlantId.Visible = false;
+            // 
             // Planta
             // 
+            Planta.FillWeight = 29.19173F;
             Planta.HeaderText = "Planta";
             Planta.Name = "Planta";
             Planta.ReadOnly = true;
             // 
+            // CareId
+            // 
+            CareId.HeaderText = "CareId";
+            CareId.Name = "CareId";
+            CareId.Visible = false;
+            // 
             // Atividade
             // 
+            Atividade.FillWeight = 29.19173F;
             Atividade.HeaderText = "Atividade";
             Atividade.Name = "Atividade";
             Atividade.ReadOnly = true;
             // 
             // Observacoes
             // 
+            Observacoes.FillWeight = 29.19173F;
             Observacoes.HeaderText = "Observações";
             Observacoes.Name = "Observacoes";
             Observacoes.ReadOnly = true;
             // 
             // Usuario
             // 
+            Usuario.FillWeight = 29.19173F;
             Usuario.HeaderText = "Usuario";
             Usuario.Name = "Usuario";
             Usuario.ReadOnly = true;
             // 
             // DtaRealizacao
             // 
+            DtaRealizacao.FillWeight = 29.19173F;
             DtaRealizacao.HeaderText = "Data Realizacao";
             DtaRealizacao.Name = "DtaRealizacao";
             DtaRealizacao.ReadOnly = true;
@@ -174,7 +194,7 @@
             // 
             btnConsultar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnConsultar.ForeColor = Color.DarkOliveGreen;
-            btnConsultar.Location = new Point(631, 100);
+            btnConsultar.Location = new Point(684, 116);
             btnConsultar.Name = "btnConsultar";
             btnConsultar.Size = new Size(104, 31);
             btnConsultar.TabIndex = 13;
@@ -243,12 +263,6 @@
 
         private Label lblH1;
         private DataGridView dgvCronograma;
-        private DataGridViewCheckBoxColumn IsFeito;
-        private DataGridViewTextBoxColumn Planta;
-        private DataGridViewTextBoxColumn Atividade;
-        private DataGridViewTextBoxColumn Observacoes;
-        private DataGridViewTextBoxColumn Usuario;
-        private DataGridViewTextBoxColumn DtaRealizacao;
         private Label label1;
         private DateTimePicker dtaPeriodoIni;
         private DateTimePicker dtaPeriodoFim;
@@ -257,5 +271,13 @@
         private ComboBox cbPlantas;
         private Label label3;
         private CheckBox tipSomenteFeitas;
+        private DataGridViewCheckBoxColumn IsFeito;
+        private DataGridViewTextBoxColumn PlantId;
+        private DataGridViewTextBoxColumn Planta;
+        private DataGridViewTextBoxColumn CareId;
+        private DataGridViewTextBoxColumn Atividade;
+        private DataGridViewTextBoxColumn Observacoes;
+        private DataGridViewTextBoxColumn Usuario;
+        private DataGridViewTextBoxColumn DtaRealizacao;
     }
 }

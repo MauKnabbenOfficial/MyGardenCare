@@ -16,8 +16,9 @@ public class WorksService : BaseService<Works, WorksDto>
     }
     public List<WorksDto> ReturnWorksDateSpan(DateTime dateStart, DateTime dateEnd)
     {
-        return _context.Set<Works>().Select(w => w.MapTo<WorksDto>())
-            .Where(w => w.DataRealizacao.CompareTo(dateStart) >= 0 &&
-                        w.DataRealizacao.CompareTo(dateEnd) <= 0).ToList();
+         var works = _context.Set<Works>().Where(w => w.DataRealizacao.Value.CompareTo(dateStart) >= 0 &&
+                        w.DataRealizacao.Value.CompareTo(dateEnd) <= 0).ToList();
+
+        return works.MapToList<Works,WorksDto>();
     }
 }

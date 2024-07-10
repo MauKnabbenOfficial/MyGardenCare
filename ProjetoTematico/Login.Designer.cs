@@ -78,7 +78,7 @@
             txtUser.Location = new Point(148, 96);
             txtUser.Margin = new Padding(3, 2, 3, 2);
             txtUser.Name = "txtUser";
-            txtUser.Size = new Size(173, 29);
+            txtUser.Size = new Size(204, 29);
             txtUser.TabIndex = 3;
             // 
             // txtPassword
@@ -88,7 +88,7 @@
             txtPassword.Margin = new Padding(3, 2, 3, 2);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
-            txtPassword.Size = new Size(173, 29);
+            txtPassword.Size = new Size(204, 29);
             txtPassword.TabIndex = 4;
             txtPassword.KeyDown += txtPassword_KeyDown;
             // 
@@ -96,7 +96,7 @@
             // 
             btnLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogin.ForeColor = Color.DarkOliveGreen;
-            btnLogin.Location = new Point(188, 188);
+            btnLogin.Location = new Point(197, 188);
             btnLogin.Margin = new Padding(3, 2, 3, 2);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(95, 34);
@@ -111,7 +111,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SeaGreen;
             BackgroundImageLayout = ImageLayout.None;
-            ClientSize = new Size(468, 283);
+            ClientSize = new Size(468, 258);
             Controls.Add(btnLogin);
             Controls.Add(txtPassword);
             Controls.Add(txtUser);

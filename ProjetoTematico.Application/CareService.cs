@@ -1,4 +1,5 @@
-﻿using ProjetoTematico.Domain;
+﻿using Microsoft.EntityFrameworkCore;
+using ProjetoTematico.Domain;
 using ProjetoTematico.Dto;
 using ProjetoTematico.Persistence;
 using System.Security.Cryptography.X509Certificates;
@@ -9,6 +10,29 @@ public class CareService : BaseService<Care, CareDto>
 {
     public CareService(MyGardenCareContext context) : base(context)
     {
+    }
+    public int Create(CareDto dto)
+    {
+        try
+        {
+            var verificar = _context.Set<Care>().AsNoTracking().FirstOrDefault(x => x.Id == dto.Id);
+
+            if (verificar is not null)
+            {
+                throw new Exception("Entidade já existe!");
+            }
+
+            var entidade = dto.MapTo<Care>();
+
+            _context.Set<Care>().Add(entidade);
+            _context.SaveChanges();
+
+            return entidade.Id;
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
     }
     public List<CareDto> ReturnCaresTimeSpan(DateTime dateStart, DateTime dateEnd)
     {
@@ -21,7 +45,7 @@ public class CareService : BaseService<Care, CareDto>
 
         var ret = new List<CareDto>();
 
-        var timespan = dateEnd - dateStart;
+        var daysSpan = (dateEnd.Date - dateStart.Date).Days;
         var cares = this.GetAll();
 
         cares.ForEach(c =>
@@ -39,9 +63,9 @@ public class CareService : BaseService<Care, CareDto>
                     divisor = 30;
                     break;
             }
-            var daysSpan = (int)timespan.Days / divisor;
+            float qtdListar = (float)daysSpan / divisor;
 
-            for (var i = 0; i > daysSpan; i++)
+            for (var i = 0; i < qtdListar; i++)
             {
                 ret.Add(new CareDto()
                 {
@@ -50,7 +74,7 @@ public class CareService : BaseService<Care, CareDto>
                     Descricao = c.Descricao,
                     IndPeriodicidade = c.IndPeriodicidade,
                     Observacao = c.Observacao,
-                    Planta = c.Planta,
+                    PlantId = c.PlantId,
                 });
             }        
         });

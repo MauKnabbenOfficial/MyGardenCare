@@ -30,10 +30,10 @@
         {
             btnEditar = new Button();
             dgvPlantas = new DataGridView();
+            label1 = new Label();
             Id = new DataGridViewTextBoxColumn();
             Nome = new DataGridViewTextBoxColumn();
             DataPlantio = new DataGridViewTextBoxColumn();
-            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvPlantas).BeginInit();
             SuspendLayout();
             // 
@@ -61,22 +61,6 @@
             dgvPlantas.Size = new Size(404, 362);
             dgvPlantas.TabIndex = 31;
             // 
-            // Id
-            // 
-            Id.HeaderText = "Id";
-            Id.Name = "Id";
-            // 
-            // Nome
-            // 
-            Nome.HeaderText = "Nome";
-            Nome.Name = "Nome";
-            // 
-            // DataPlantio
-            // 
-            DataPlantio.HeaderText = "Data do Plantio";
-            DataPlantio.Name = "DataPlantio";
-            DataPlantio.Width = 150;
-            // 
             // label1
             // 
             label1.BackColor = Color.YellowGreen;
@@ -90,6 +74,23 @@
             label1.TabIndex = 33;
             label1.Text = "CONSULTA PLANTAS";
             label1.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // Id
+            // 
+            Id.HeaderText = "Id";
+            Id.Name = "Id";
+            // 
+            // Nome
+            // 
+            Nome.HeaderText = "Nome";
+            Nome.Name = "Nome";
+            Nome.Width = 150;
+            // 
+            // DataPlantio
+            // 
+            DataPlantio.HeaderText = "Data do Plantio";
+            DataPlantio.Name = "DataPlantio";
+            DataPlantio.Width = 150;
             // 
             // PlantGridForm
             // 
@@ -112,9 +113,9 @@
 
         private Button btnEditar;
         private DataGridView dgvPlantas;
+        private Label label1;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Nome;
         private DataGridViewTextBoxColumn DataPlantio;
-        private Label label1;
     }
 }

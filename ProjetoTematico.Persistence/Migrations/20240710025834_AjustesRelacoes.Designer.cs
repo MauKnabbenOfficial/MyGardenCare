@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjetoTematico.Persistence;
 
@@ -10,9 +11,11 @@ using ProjetoTematico.Persistence;
 namespace ProjetoTematico.Persistence.Migrations
 {
     [DbContext(typeof(MyGardenCareContext))]
-    partial class MyGardenCareContextModelSnapshot : ModelSnapshot
+    [Migration("20240710025834_AjustesRelacoes")]
+    partial class AjustesRelacoes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.4");
@@ -31,7 +34,6 @@ namespace ProjetoTematico.Persistence.Migrations
             modelBuilder.Entity("ProjetoTematico.Domain.Care", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("AccessProfileId")
@@ -52,6 +54,8 @@ namespace ProjetoTematico.Persistence.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PlantId");
 
                     b.ToTable("Cares");
                 });
@@ -181,9 +185,6 @@ namespace ProjetoTematico.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CareId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<DateTime?>("DataRealizacao")
                         .HasColumnType("TEXT");
 
@@ -196,6 +197,36 @@ namespace ProjetoTematico.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Works");
+                });
+
+            modelBuilder.Entity("ProjetoTematico.Domain.Care", b =>
+                {
+                    b.HasOne("ProjetoTematico.Domain.Works", "Work")
+                        .WithOne("Care")
+                        .HasForeignKey("ProjetoTematico.Domain.Care", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProjetoTematico.Domain.Plant", "Plant")
+                        .WithMany("Cuidados")
+                        .HasForeignKey("PlantId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Plant");
+
+                    b.Navigation("Work");
+                });
+
+            modelBuilder.Entity("ProjetoTematico.Domain.Plant", b =>
+                {
+                    b.Navigation("Cuidados");
+                });
+
+            modelBuilder.Entity("ProjetoTematico.Domain.Works", b =>
+                {
+                    b.Navigation("Care")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

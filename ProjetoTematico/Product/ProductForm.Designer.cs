@@ -55,11 +55,11 @@
             // qtdEstoque
             // 
             qtdEstoque.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            qtdEstoque.Font = new Font("Segoe UI", 12F);
+            qtdEstoque.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             qtdEstoque.Location = new Point(162, 115);
             qtdEstoque.Name = "qtdEstoque";
             qtdEstoque.Size = new Size(134, 29);
-            qtdEstoque.TabIndex = 23;
+            qtdEstoque.TabIndex = 23;            
             // 
             // lblObservacoes
             // 
@@ -115,7 +115,7 @@
             txtObservacoes.Location = new Point(162, 154);
             txtObservacoes.Multiline = true;
             txtObservacoes.Name = "txtObservacoes";
-            txtObservacoes.Size = new Size(366, 61);
+            txtObservacoes.Size = new Size(280, 61);
             txtObservacoes.TabIndex = 29;
             // 
             // label2

@@ -190,6 +190,7 @@
             // 
             btnSair.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnSair.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnSair.ForeColor = Color.DarkOliveGreen;
             btnSair.Location = new Point(945, 9);
             btnSair.Name = "btnSair";
             btnSair.Size = new Size(59, 32);

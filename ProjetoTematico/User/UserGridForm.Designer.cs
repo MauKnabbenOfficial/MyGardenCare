@@ -70,7 +70,7 @@
             dgvUsuarios.Location = new Point(12, 70);
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.RowHeadersVisible = false;
-            dgvUsuarios.Size = new Size(442, 318);
+            dgvUsuarios.Size = new Size(455, 318);
             dgvUsuarios.TabIndex = 28;
             // 
             // Id
@@ -87,6 +87,7 @@
             // 
             Email.HeaderText = "Email";
             Email.Name = "Email";
+            Email.Width = 150;
             // 
             // Administrador
             // 
@@ -129,10 +130,10 @@
         private Label label1;
         private Label lblH1;
         private DataGridView dgvUsuarios;
+        private Button btnEditar;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Nome;
         private DataGridViewTextBoxColumn Email;
         private DataGridViewTextBoxColumn Administrador;
-        private Button btnEditar;
     }
 }

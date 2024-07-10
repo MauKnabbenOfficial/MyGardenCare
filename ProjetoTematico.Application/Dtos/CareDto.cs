@@ -15,10 +15,11 @@ public class CareDto : BaseDto
         Descricao = care.Descricao;
         Observacao = care.Observacao;
         IndPeriodicidade = care.IndPeriodicidade;
+        PlantId = care.PlantId;
     }    
     public int? AccessProfileId { get; set; }
     public string Descricao { get; set; }
     public string Observacao { get; set; }
     public int IndPeriodicidade { get; set; }
-    public Plant Planta { get; set; }
+    public int PlantId { get; set; }
 }

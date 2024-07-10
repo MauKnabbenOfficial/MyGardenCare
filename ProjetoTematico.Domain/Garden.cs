@@ -9,8 +9,6 @@ namespace ProjetoTematico.Domain;
 
 public class Garden : BaseModel
 {
-    [Key]
-    public int Id { get; set; }
     public string Nome { get; set; }
     public string Descricao { get; set; }
     public string Endereco { get; set; }

@@ -68,7 +68,7 @@
             txtTelefone.Name = "txtTelefone";
             txtTelefone.PromptChar = ' ';
             txtTelefone.Size = new Size(210, 29);
-            txtTelefone.TabIndex = 16;
+            txtTelefone.TabIndex = 3;
             txtTelefone.TextChanged += maskedTextBox1_TextChanged;
             // 
             // txtCpf
@@ -81,7 +81,7 @@
             txtCpf.Name = "txtCpf";
             txtCpf.PromptChar = ' ';
             txtCpf.Size = new Size(210, 29);
-            txtCpf.TabIndex = 15;
+            txtCpf.TabIndex = 2;
             // 
             // label2
             // 
@@ -104,7 +104,7 @@
             txtSenha.Name = "txtSenha";
             txtSenha.PasswordChar = '*';
             txtSenha.Size = new Size(377, 29);
-            txtSenha.TabIndex = 19;
+            txtSenha.TabIndex = 5;
             txtSenha.UseSystemPasswordChar = true;
             // 
             // btnFechar
@@ -117,7 +117,7 @@
             btnFechar.MaximumSize = new Size(100, 35);
             btnFechar.Name = "btnFechar";
             btnFechar.Size = new Size(100, 34);
-            btnFechar.TabIndex = 23;
+            btnFechar.TabIndex = 8;
             btnFechar.Text = "FECHAR";
             btnFechar.UseVisualStyleBackColor = true;
             btnFechar.Click += btnFechar_Click;
@@ -131,7 +131,7 @@
             IsAdmin.Location = new Point(225, 262);
             IsAdmin.Name = "IsAdmin";
             IsAdmin.Size = new Size(139, 25);
-            IsAdmin.TabIndex = 21;
+            IsAdmin.TabIndex = 6;
             IsAdmin.Text = "Administrador";
             IsAdmin.UseVisualStyleBackColor = true;
             // 
@@ -155,7 +155,7 @@
             txtEmail.Location = new Point(225, 184);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(377, 29);
-            txtEmail.TabIndex = 17;
+            txtEmail.TabIndex = 4;
             // 
             // btnSave
             // 
@@ -166,7 +166,7 @@
             btnSave.Location = new Point(582, 288);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(100, 34);
-            btnSave.TabIndex = 22;
+            btnSave.TabIndex = 7;
             btnSave.Text = "SALVAR";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
@@ -217,7 +217,7 @@
             txtNome.Location = new Point(225, 76);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(377, 29);
-            txtNome.TabIndex = 14;
+            txtNome.TabIndex = 1;
             // 
             // UserForm
             // 

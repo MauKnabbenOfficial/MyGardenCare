@@ -25,6 +25,8 @@ namespace ProjetoTematico.Plant
 
         private void PlantGridForm_Load(object sender, EventArgs e)
         {
+            dgvPlantas.Rows.Clear();
+
             var plantas = _controle.GetAll();            
 
             plantas.ForEach(p =>
@@ -46,7 +48,9 @@ namespace ProjetoTematico.Plant
                     Text = $"Editar Planta {planta}"
                 };
 
-                plantForm.Show();
+                plantForm.ShowDialog();
+
+                PlantGridForm_Load(sender, e);
             }
 
         }

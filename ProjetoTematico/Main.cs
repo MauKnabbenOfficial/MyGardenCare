@@ -71,6 +71,13 @@ namespace ProjetoTematico
             {
                 headerLabel.Text = headerLabel.Text.Split('\n')[0];
                 footerLabel.Text = $"Trabalhando no {_jardim.Nome} - {DateTime.Now.ToString("d")}";
+
+                cadastrosToolStripMenuItem.DropDownItems[2].Visible = true;
+                cadastrosToolStripMenuItem.DropDownItems[3].Visible = true;
+                                                                      
+                consultasToolStripMenuItem.DropDownItems[1].Visible = true;
+                consultasToolStripMenuItem.DropDownItems[2].Visible = true;
+                consultasToolStripMenuItem.DropDownItems[3].Visible = true;
             }
         }
 
@@ -180,7 +187,7 @@ namespace ProjetoTematico
         {
             this.mainPanel.Controls.Clear();
 
-            ScheduleForm scheduleForm = new ScheduleForm
+            ScheduleForm scheduleForm = new ScheduleForm(_usuarioLogado)
             {
                 TopLevel = false,
                 Dock = DockStyle.Fill,
