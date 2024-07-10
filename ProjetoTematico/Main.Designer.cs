@@ -82,44 +82,45 @@
             // usuarioBtnMenuItem
             // 
             usuarioBtnMenuItem.Name = "usuarioBtnMenuItem";
-            usuarioBtnMenuItem.Size = new Size(141, 22);
+            usuarioBtnMenuItem.Size = new Size(180, 22);
             usuarioBtnMenuItem.Text = "Usuario";
             usuarioBtnMenuItem.Click += usuarioBtnMenuItem_Click;
             // 
             // perfilToolStripMenuItem
             // 
             perfilToolStripMenuItem.Name = "perfilToolStripMenuItem";
-            perfilToolStripMenuItem.Size = new Size(141, 22);
+            perfilToolStripMenuItem.Size = new Size(180, 22);
             perfilToolStripMenuItem.Text = "Perfil";
             // 
             // jardimToolStripMenuItem
             // 
             jardimToolStripMenuItem.Name = "jardimToolStripMenuItem";
-            jardimToolStripMenuItem.Size = new Size(141, 22);
+            jardimToolStripMenuItem.Size = new Size(180, 22);
             jardimToolStripMenuItem.Text = "Jardim";
+            jardimToolStripMenuItem.Click += jardimToolStripMenuItem_Click;
             // 
             // plantaToolStripMenuItem
             // 
             plantaToolStripMenuItem.Name = "plantaToolStripMenuItem";
-            plantaToolStripMenuItem.Size = new Size(141, 22);
+            plantaToolStripMenuItem.Size = new Size(180, 22);
             plantaToolStripMenuItem.Text = "Planta";
             // 
             // produtoToolStripMenuItem
             // 
             produtoToolStripMenuItem.Name = "produtoToolStripMenuItem";
-            produtoToolStripMenuItem.Size = new Size(141, 22);
+            produtoToolStripMenuItem.Size = new Size(180, 22);
             produtoToolStripMenuItem.Text = "Produto";
             // 
             // cronogramaToolStripMenuItem
             // 
             cronogramaToolStripMenuItem.Name = "cronogramaToolStripMenuItem";
-            cronogramaToolStripMenuItem.Size = new Size(141, 22);
+            cronogramaToolStripMenuItem.Size = new Size(180, 22);
             cronogramaToolStripMenuItem.Text = "Cronograma";
             // 
             // trabalhoToolStripMenuItem
             // 
             trabalhoToolStripMenuItem.Name = "trabalhoToolStripMenuItem";
-            trabalhoToolStripMenuItem.Size = new Size(141, 22);
+            trabalhoToolStripMenuItem.Size = new Size(180, 22);
             trabalhoToolStripMenuItem.Text = "Trabalho";
             // 
             // mainPanel

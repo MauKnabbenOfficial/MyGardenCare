@@ -6,7 +6,7 @@ namespace ProjetoTematico.Controllers;
 public class CareController : BaseController
 {
     private readonly CareService _service;
-    public CareController()
+    public CareController(UserDto user) : base(user)
     {
         _service = new CareService(_context);
     }

@@ -7,7 +7,7 @@ public class ProductController : BaseController
 {
     public readonly ProductService _service;
 
-    public ProductController()
+    public ProductController(UserDto user) : base(user)
     {
         _service = new ProductService(_context);
     }

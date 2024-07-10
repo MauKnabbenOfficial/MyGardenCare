@@ -35,14 +35,12 @@ public class BaseService<TModel, TDto> : IServiceBase where TModel : BaseModel, 
     {
         try
         {
-            var verificar = _context.Set<TModel>().AsNoTracking().FirstOrDefault(x => x.Id == id);
+            var isModel = _context.Set<TModel>().AsNoTracking().FirstOrDefault(x => x.Id == id);
 
-            if (verificar is null)
-            {
+            if (isModel is null)
                 throw new Exception($"ID '{id}' não  encontrado!");
-            }
 
-            var entidade = verificar.MapTo<TDto>();
+            var entidade = isModel.MapTo<TDto>();
 
             return entidade;
         }
@@ -57,12 +55,10 @@ public class BaseService<TModel, TDto> : IServiceBase where TModel : BaseModel, 
     {
         try
         {
-            var verificar = _context.Set<TModel>().AsNoTracking().FirstOrDefault(x => x.Id == dto.Id);
+            var isModel = _context.Set<TModel>().AsNoTracking().FirstOrDefault(x => x.Id == dto.Id);
 
-            if (verificar is not null)
-            {
+            if (isModel is not null)
                 throw new Exception("Entidade já existe!");
-            }
 
             var entidade = dto.MapTo<TModel>();
 
@@ -83,9 +79,9 @@ public class BaseService<TModel, TDto> : IServiceBase where TModel : BaseModel, 
         {
             var id = dto.Id;
 
-            var verificar = _context.Set<TModel>().AsNoTracking().Where(x => x.Id == id).FirstOrDefault();
+            var isModel = _context.Set<TModel>().AsNoTracking().Where(x => x.Id == id).FirstOrDefault();
 
-            if (verificar is null)
+            if (isModel is null)
             {
                 throw new Exception("Entidade não encontrada!");
             }
@@ -108,14 +104,14 @@ public class BaseService<TModel, TDto> : IServiceBase where TModel : BaseModel, 
     {
         try
         {
-            var verificar = _context.Set<TModel>().AsNoTracking().Where(x => x.Id == id).FirstOrDefault();
+            var isModel = _context.Set<TModel>().AsNoTracking().Where(x => x.Id == id).FirstOrDefault();
 
-            if (verificar is null)
+            if (isModel is null)
             {
                 throw new Exception("Entidade não encontrada!");
             }
 
-            _context.Set<TModel>().Remove(verificar);
+            _context.Set<TModel>().Remove(isModel);
             _context.SaveChanges();
 
             return true;
