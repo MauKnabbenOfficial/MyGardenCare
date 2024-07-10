@@ -7,7 +7,7 @@ public class ScheduleController : BaseController
 {
     public readonly ScheduleService _service;
 
-    public ScheduleController()
+    public ScheduleController(UserDto user) : base(user)
     {
         _service = new ScheduleService(_context);
     }

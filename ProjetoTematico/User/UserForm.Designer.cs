@@ -37,6 +37,11 @@
             lblH1 = new Label();
             btnSave = new Button();
             panel1 = new Panel();
+            comboBoxPermissao = new ComboBox();
+            lblPermissao = new Label();
+            lblJardim = new Label();
+            comboBoxJardim = new ComboBox();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // lblNome
@@ -52,21 +57,21 @@
             // 
             txtNome.Location = new Point(338, 99);
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(100, 23);
+            txtNome.Size = new Size(121, 23);
             txtNome.TabIndex = 1;
             // 
             // txtCpf
             // 
             txtCpf.Location = new Point(338, 138);
             txtCpf.Name = "txtCpf";
-            txtCpf.Size = new Size(100, 23);
+            txtCpf.Size = new Size(121, 23);
             txtCpf.TabIndex = 2;
             // 
             // txtPhone
             // 
             txtPhone.Location = new Point(338, 176);
             txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(100, 23);
+            txtPhone.Size = new Size(121, 23);
             txtPhone.TabIndex = 3;
             // 
             // lblCpf
@@ -99,7 +104,7 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(338, 214);
+            btnSave.Location = new Point(338, 297);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(100, 23);
             btnSave.TabIndex = 7;
@@ -110,11 +115,52 @@
             // panel1
             // 
             panel1.AutoSize = true;
+            panel1.Controls.Add(comboBoxJardim);
+            panel1.Controls.Add(lblJardim);
+            panel1.Controls.Add(comboBoxPermissao);
+            panel1.Controls.Add(lblPermissao);
+            panel1.Controls.Add(btnSave);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 450);
             panel1.TabIndex = 8;
+            // 
+            // comboBoxPermissao
+            // 
+            comboBoxPermissao.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxPermissao.FormattingEnabled = true;
+            comboBoxPermissao.Location = new Point(338, 214);
+            comboBoxPermissao.Name = "comboBoxPermissao";
+            comboBoxPermissao.Size = new Size(121, 23);
+            comboBoxPermissao.TabIndex = 9;
+            // 
+            // lblPermissao
+            // 
+            lblPermissao.AutoSize = true;
+            lblPermissao.Location = new Point(262, 222);
+            lblPermissao.Name = "lblPermissao";
+            lblPermissao.Size = new Size(70, 15);
+            lblPermissao.TabIndex = 8;
+            lblPermissao.Text = "PERMISSAO";
+            // 
+            // lblJardim
+            // 
+            lblJardim.AutoSize = true;
+            lblJardim.Location = new Point(284, 254);
+            lblJardim.Name = "lblJardim";
+            lblJardim.Size = new Size(48, 15);
+            lblJardim.TabIndex = 10;
+            lblJardim.Text = "JARDIM";
+            // 
+            // comboBoxJardim
+            // 
+            comboBoxJardim.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxJardim.FormattingEnabled = true;
+            comboBoxJardim.Location = new Point(338, 246);
+            comboBoxJardim.Name = "comboBoxJardim";
+            comboBoxJardim.Size = new Size(121, 23);
+            comboBoxJardim.TabIndex = 11;
             // 
             // UserForm
             // 
@@ -122,7 +168,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(800, 450);
-            Controls.Add(btnSave);
             Controls.Add(lblH1);
             Controls.Add(lblTelefone);
             Controls.Add(lblCpf);
@@ -133,6 +178,8 @@
             Controls.Add(panel1);
             Name = "UserForm";
             Text = "UserForm";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -148,5 +195,9 @@
         private Label lblH1;
         private Button btnSave;
         private Panel panel1;
+        private Label lblPermissao;
+        private ComboBox comboBoxPermissao;
+        private ComboBox comboBoxJardim;
+        private Label lblJardim;
     }
 }

@@ -7,7 +7,7 @@ public class WorksController : BaseController
 {
     public readonly WorksService _service;
 
-    public WorksController()
+    public WorksController(UserDto user) : base(user)
     {
         _service = new WorksService(_context);
     }
