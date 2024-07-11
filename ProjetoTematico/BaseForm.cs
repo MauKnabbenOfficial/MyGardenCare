@@ -32,7 +32,7 @@ namespace ProjetoTematico
             headerPanel = new Panel();
             headerPanel.Dock = DockStyle.Top;
             headerPanel.Height = 50;
-            headerPanel.BackColor = System.Drawing.Color.DarkBlue;
+            headerPanel.BackColor = System.Drawing.Color.DarkGreen;
 
             // Label do cabeçalho
             headerLabel = new Label();
@@ -48,7 +48,7 @@ namespace ProjetoTematico
             footerPanel = new Panel();
             footerPanel.Dock = DockStyle.Bottom;
             footerPanel.Height = 30;
-            footerPanel.BackColor = System.Drawing.Color.DarkBlue;
+            footerPanel.BackColor = System.Drawing.Color.DarkGreen;
 
             // Label do rodapé
             footerLabel = new Label();

@@ -8,5 +8,7 @@ namespace ProjetoTematico.Dto;
 
 public class ProductDto : BaseDto
 {
-
+    public string Nome { get; set; }
+    public int QtdEstoque { get; set; }
+    public string Observacoes { get; set; }
 }

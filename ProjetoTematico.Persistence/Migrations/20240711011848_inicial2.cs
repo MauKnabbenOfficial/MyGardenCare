@@ -5,57 +5,47 @@
 namespace ProjetoTematico.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class MigracaoInicial : Migration
+    public partial class inicial2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<int>(
-                name: "AccessProfileId",
-                table: "Users",
-                type: "INTEGER",
-                nullable: true);
-
-            migrationBuilder.AddColumn<string>(
-                name: "Cpf",
-                table: "Users",
-                type: "TEXT",
-                nullable: false,
-                defaultValue: "");
-
             migrationBuilder.AddColumn<string>(
                 name: "Nome",
-                table: "Users",
+                table: "Products",
                 type: "TEXT",
                 nullable: false,
                 defaultValue: "");
 
             migrationBuilder.AddColumn<string>(
-                name: "Telefone",
-                table: "Users",
+                name: "Observacoes",
+                table: "Products",
                 type: "TEXT",
                 nullable: false,
                 defaultValue: "");
+
+            migrationBuilder.AddColumn<int>(
+                name: "QtdEstoque",
+                table: "Products",
+                type: "INTEGER",
+                nullable: false,
+                defaultValue: 0);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "AccessProfileId",
-                table: "Users");
-
-            migrationBuilder.DropColumn(
-                name: "Cpf",
-                table: "Users");
-
-            migrationBuilder.DropColumn(
                 name: "Nome",
-                table: "Users");
+                table: "Products");
 
             migrationBuilder.DropColumn(
-                name: "Telefone",
-                table: "Users");
+                name: "Observacoes",
+                table: "Products");
+
+            migrationBuilder.DropColumn(
+                name: "QtdEstoque",
+                table: "Products");
         }
     }
 }

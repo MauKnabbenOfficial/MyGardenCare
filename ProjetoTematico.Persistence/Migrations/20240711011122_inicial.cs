@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace ProjetoTematico.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class Teste1 : Migration
+    public partial class inicial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,7 +16,8 @@ namespace ProjetoTematico.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    PermissaoLevel = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -27,7 +29,12 @@ namespace ProjetoTematico.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    AccessProfileId = table.Column<int>(type: "INTEGER", nullable: true),
+                    Descricao = table.Column<string>(type: "TEXT", nullable: false),
+                    Observacao = table.Column<string>(type: "TEXT", nullable: false),
+                    IndPeriodicidade = table.Column<int>(type: "INTEGER", nullable: false),
+                    PlantId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -39,7 +46,10 @@ namespace ProjetoTematico.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ManagerChiefId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    Local = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -51,7 +61,12 @@ namespace ProjetoTematico.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    AccessProfileId = table.Column<int>(type: "INTEGER", nullable: true),
+                    Nome = table.Column<string>(type: "TEXT", nullable: false),
+                    Apelido = table.Column<string>(type: "TEXT", nullable: false),
+                    Observacoes = table.Column<string>(type: "TEXT", nullable: false),
+                    DataPlantio = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -87,7 +102,13 @@ namespace ProjetoTematico.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    GardenId = table.Column<int>(type: "INTEGER", nullable: true),
+                    AccessProfileId = table.Column<int>(type: "INTEGER", nullable: true),
+                    Nome = table.Column<string>(type: "TEXT", nullable: true),
+                    Cpf = table.Column<string>(type: "TEXT", nullable: true),
+                    Telefone = table.Column<string>(type: "TEXT", nullable: true),
+                    Senha = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -99,7 +120,8 @@ namespace ProjetoTematico.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    DataRealizacao = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {

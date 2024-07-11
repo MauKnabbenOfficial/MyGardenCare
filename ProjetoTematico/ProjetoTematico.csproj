@@ -47,7 +47,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="teste.db">
+    <None Update="banco.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="teste2.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

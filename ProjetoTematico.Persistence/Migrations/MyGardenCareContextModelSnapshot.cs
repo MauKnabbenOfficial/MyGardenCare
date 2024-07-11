@@ -37,6 +37,23 @@ namespace ProjetoTematico.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("AccessProfileId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("IndPeriodicidade")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Observacao")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("PlantId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
                     b.ToTable("Cares");
@@ -70,6 +87,24 @@ namespace ProjetoTematico.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("AccessProfileId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Apelido")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("DataPlantio")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Observacoes")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.ToTable("Plants");
@@ -79,6 +114,17 @@ namespace ProjetoTematico.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Observacoes")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("QtdEstoque")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -130,6 +176,18 @@ namespace ProjetoTematico.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CareId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("DataRealizacao")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("IdUsuarioRealizador")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("Realizada")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");

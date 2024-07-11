@@ -1,6 +1,7 @@
 ﻿using ProjetoTematico.Dto;
 using ProjetoTematico.Controllers;
 using ProjetoTematico.Domain;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace ProjetoTematico
 {
@@ -11,18 +12,34 @@ namespace ProjetoTematico
         private AccessProfileController _accessProfileControle;
         private GardenController _gardenControle;
         private UserDto ManagerChief;
+        UserDto _user;
 
-        public UserForm(UserDto user)
+        public UserForm(UserDto usuarioLogado, int? id = null)
         {
-            _currentUser = user;
-            _controle = new UserController(user);
+            _currentUser = usuarioLogado;
+            _controle = new UserController(usuarioLogado);
             _accessProfileControle = new AccessProfileController();
-            _gardenControle = new GardenController(user);
+            _gardenControle = new GardenController(usuarioLogado);
 
             InitializeComponent();
             SetToPanelChildForm();
 
             PreparaDados();
+
+            if (id is not null) { 
+                _user = _controle.GetById(id.Value);
+                PopularCampos();
+            }
+            else _user = new UserDto();
+
+        }
+
+        private void PopularCampos()
+        {
+            this.txtNome.Text = _user.Nome;
+            this.txtCpf.Text = _user.Cpf;
+            this.txtPhone.Text = _user.Telefone;
+
         }
 
         private void PreparaDados()
@@ -35,6 +52,10 @@ namespace ProjetoTematico
             }
             catch
             {
+                if (_currentUser.GardenId is null) { 
+                    throw new Exception("É necessário ter ao menos um Jardim antes de cadastrar um Usuario!");
+                }
+
                 var garden = _gardenControle.GetById(_currentUser.GardenId.Value);
                 ManagerChief = _controle.GetById(garden.ManagerChiefId);
             }
@@ -66,6 +87,7 @@ namespace ProjetoTematico
 
                 UserDto newUser = new UserDto
                 {
+                    Id = _user != null? _user.Id : 0,
                     Nome = Nome,
                     Cpf = Cpf,
                     Telefone = Telefone,
@@ -74,15 +96,30 @@ namespace ProjetoTematico
                     Senha = "1234"
                 };
 
-                _controle.CreateUser(newUser);
-
-                MessageBox.Show("Usuario cadastrado com sucesso!", "SUCESSO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (_user != null)
+                {
+                    _controle.UpdateUser(newUser);
+                    MessageBox.Show("Usuario atualizado com sucesso!", "SUCESSO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    _controle.CreateUser(newUser);
+                    MessageBox.Show("Usuario cadastrado com sucesso!", "SUCESSO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimparCampos();
+                }
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ocorreu um Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void LimparCampos()
+        {
+            this.txtNome.Clear();
+            this.txtPhone.Clear();
+            this.txtCpf.Clear();
         }
     }
 }
