@@ -35,7 +35,7 @@ namespace ProjetoTematico.User
             if (dgvUsuarios.CurrentRow.Cells[0].Value != null)
             {
                 var id = int.Parse(dgvUsuarios.CurrentRow.Cells[0].Value.ToString());
-                UserForm usuarioForm = new UserForm(_usuarioLogado)
+                UserForm usuarioForm = new UserForm(_usuarioLogado, id)
                 {
                     TopLevel = true,
                     Dock = DockStyle.Fill,

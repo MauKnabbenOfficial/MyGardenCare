@@ -17,10 +17,12 @@ namespace ProjetoTematico.Plant
     public partial class PlantGridForm : Form
     {
         PlantController _controle;
+        UserDto _currentUser;
         public PlantGridForm(UserDto usuarioLogado)
         {
             InitializeComponent();
-            _controle = new PlantController();
+            _currentUser = usuarioLogado;
+            _controle = new PlantController(_currentUser);
 
             if (usuarioLogado.AccessProfileId != 1) { 
                 this.btnExcluir.Visible = false;
@@ -44,7 +46,7 @@ namespace ProjetoTematico.Plant
             if (dgvPlantas.CurrentRow.Cells[0].Value != null)
             {
                 var planta = int.Parse(dgvPlantas.CurrentRow.Cells[0].Value.ToString());
-                PlantForm plantForm = new PlantForm(planta)
+                PlantForm plantForm = new PlantForm(planta, _currentUser)
                 {
                     TopLevel = true,
                     Dock = DockStyle.Fill,

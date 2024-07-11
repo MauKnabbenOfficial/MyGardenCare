@@ -17,10 +17,12 @@ namespace ProjetoTematico.Product
     public partial class ProductGridForm : Form
     {
         ProductController _controle;
+        UserDto _currentUser;
         UserController _userController;
         public ProductGridForm(UserDto usuarioLogado)
         {
             InitializeComponent();
+            _currentUser = usuarioLogado;
             _controle = new ProductController(usuarioLogado);
             _userController = new UserController(usuarioLogado);
 
@@ -37,10 +39,10 @@ namespace ProjetoTematico.Product
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (dgvProdutos.CurrentRow.Cells[0].Value != null)
+                if (dgvProdutos.CurrentRow.Cells[0].Value != null)
             {
                 var id = int.Parse(dgvProdutos.CurrentRow.Cells[0].Value.ToString());
-                ProductForm productForm = new ProductForm(id)
+                ProductForm productForm = new ProductForm(id, _currentUser)
                 {
                     TopLevel = true,
                     Dock = DockStyle.Fill,

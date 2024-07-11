@@ -11,8 +11,8 @@ using ProjetoTematico.Persistence;
 namespace ProjetoTematico.Persistence.Migrations
 {
     [DbContext(typeof(MyGardenCareContext))]
-    [Migration("20240711001817_inicial")]
-    partial class inicial
+    [Migration("20240711012045_inicial3")]
+    partial class inicial3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -119,6 +119,17 @@ namespace ProjetoTematico.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Observacoes")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("QtdEstoque")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
                     b.ToTable("Products");
@@ -170,8 +181,17 @@ namespace ProjetoTematico.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("CareId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("DataRealizacao")
                         .HasColumnType("TEXT");
+
+                    b.Property<int?>("IdUsuarioRealizador")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("Realizada")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
