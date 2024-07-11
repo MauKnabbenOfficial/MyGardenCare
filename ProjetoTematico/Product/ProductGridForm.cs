@@ -17,12 +17,19 @@ namespace ProjetoTematico.Product
     public partial class ProductGridForm : Form
     {
         ProductController _controle;
+        UserController _userController;
         public ProductGridForm(UserDto usuarioLogado)
         {
             InitializeComponent();
-            _controle = new ProductController();
+            _controle = new ProductController(usuarioLogado);
+            _userController = new UserController(usuarioLogado);
 
-            if (!usuarioLogado.IsAdmin)
+            try
+            {
+                _userController.CheckSysAdmin();
+
+            }
+            catch
             {
                 btnExcluir.Visible = false;
             }
