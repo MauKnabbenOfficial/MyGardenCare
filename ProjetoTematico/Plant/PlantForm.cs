@@ -1,4 +1,5 @@
-﻿using ProjetoTematico.Controllers;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using ProjetoTematico.Controllers;
 using ProjetoTematico.Domain;
 using ProjetoTematico.Dto;
 using System;
@@ -22,16 +23,19 @@ namespace ProjetoTematico.Plant
         List<CareDto> _cuidados = new List<CareDto>();
         int? _idCuidado;
         int? _indexSelecionado;
-        public PlantForm()
+        private UserDto _currentUser;
+
+        public PlantForm(UserDto user)
         {
             InitializeComponent();
             SetToPanelChildForm();
 
-            _controle = new PlantController();
-            _schedule = new ScheduleController();
-            _care = new CareController();
+            _currentUser = user;
+            _controle = new PlantController(user);
+            _schedule = new ScheduleController(user);
+            _care = new CareController(user);
         }
-        public PlantForm(int id) : this()
+        public PlantForm(int id, UserDto user) : this(user)
         {
             _plant = _controle.GetById(id);
             _cuidados = _care.GetAll().Where(c => c.PlantId == id).ToList();

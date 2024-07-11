@@ -9,5 +9,5 @@ namespace ProjetoTematico.Domain;
 
 public class Works : BaseModel
 {
-    public DateTime? DataRealizacao { get; set; }
+    public string? DataRealizacao { get; set; }
 }

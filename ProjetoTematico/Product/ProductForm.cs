@@ -14,14 +14,16 @@ namespace ProjetoTematico.Product
 {
     public partial class ProductForm : Form
     {
+        private UserDto _currentUser;
         ProductController _controle;
         ProductDto _product;
-        public ProductForm()
+        public ProductForm(UserDto user)
         {
-            _controle = new ProductController();
             InitializeComponent();
+            _currentUser = user;
+            _controle = new ProductController(_currentUser);
         }
-        public ProductForm(int id) : this()
+        public ProductForm(int id, UserDto user) : this(user)
         {
             _product = _controle.GetById(id);
             PopularCampos();

@@ -30,10 +30,10 @@ namespace ProjetoTematico.Schedule
 
             _usuarioLogado = usuarioLogado;
 
-            _controle = new ScheduleController();
-            _userController = new UserController();
-            _plantController = new PlantController();
-            _worksController = new WorksController();
+            _controle = new ScheduleController(usuarioLogado);
+            _userController = new UserController(usuarioLogado);
+            _plantController = new PlantController(usuarioLogado);
+            _worksController = new WorksController(usuarioLogado);
         }
 
         private void ScheduleForm_Load(object sender, EventArgs e)

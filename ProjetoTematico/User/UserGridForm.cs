@@ -19,7 +19,7 @@ namespace ProjetoTematico.User
         public UserGridForm(UserDto usuarioLogado)
         {
             InitializeComponent();
-            _controller = new UserController();
+            _controller = new UserController(usuarioLogado);
 
             _usuarioLogado = usuarioLogado;
         }
@@ -29,7 +29,7 @@ namespace ProjetoTematico.User
             if (dgvUsuarios.CurrentRow.Cells[0].Value != null)
             {
                 var id = int.Parse(dgvUsuarios.CurrentRow.Cells[0].Value.ToString());
-                UserForm usuarioForm = new UserForm(_usuarioLogado, id)
+                UserForm usuarioForm = new UserForm(_usuarioLogado)
                 {
                     TopLevel = true,
                     Dock = DockStyle.Fill,
