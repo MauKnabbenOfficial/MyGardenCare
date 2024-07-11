@@ -16,13 +16,16 @@ namespace ProjetoTematico.Product
 {
     public partial class ProductGridForm : Form
     {
-        private UserDto _currentUser;
         ProductController _controle;
-        public ProductGridForm(UserDto user)
+        public ProductGridForm(UserDto usuarioLogado)
         {
             InitializeComponent();
-            _currentUser = user;
-            _controle = new ProductController(_currentUser);
+            _controle = new ProductController();
+
+            if (!usuarioLogado.IsAdmin)
+            {
+                btnExcluir.Visible = false;
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -30,7 +33,7 @@ namespace ProjetoTematico.Product
             if (dgvProdutos.CurrentRow.Cells[0].Value != null)
             {
                 var id = int.Parse(dgvProdutos.CurrentRow.Cells[0].Value.ToString());
-                ProductForm productForm = new ProductForm(_currentUser)
+                ProductForm productForm = new ProductForm(id)
                 {
                     TopLevel = true,
                     Dock = DockStyle.Fill,
@@ -47,11 +50,25 @@ namespace ProjetoTematico.Product
         {
             dgvProdutos.Rows.Clear();
 
-            var produtos = _controle.GetAll();            
+            var produtos = _controle.GetAll();
             produtos.ForEach(p =>
             {
                 dgvProdutos.Rows.Add(p.Id, p.Nome, p.QtdEstoque, p.Observacoes);
             });
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dgvProdutos.CurrentRow.Cells[0].Value != null)
+            {
+                var res = MessageBox.Show($"Tem certeza que deseja excluir o produto {dgvProdutos.CurrentRow.Cells[1].Value}", "EXCLUIR", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (res == DialogResult.Yes)
+                {
+                    var id = int.Parse(dgvProdutos.CurrentRow.Cells[0].Value.ToString());
+                    _controle.DeleteProduct(id);
+                }
+                ProductGridForm_Load(sender, e);
+            }
         }
     }
 }

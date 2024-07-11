@@ -14,7 +14,7 @@ namespace ProjetoTematico
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string name = this.txtUser.Text.ToLower();
+            string name = this.txtUser.Text;
             string password = this.txtPassword.Text;
 
             try

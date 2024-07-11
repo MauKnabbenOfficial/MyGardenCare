@@ -35,6 +35,7 @@
             Nome = new DataGridViewTextBoxColumn();
             QtdEstoque = new DataGridViewTextBoxColumn();
             Observacao = new DataGridViewTextBoxColumn();
+            btnExcluir = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvProdutos).BeginInit();
             SuspendLayout();
             // 
@@ -98,6 +99,19 @@
             Observacao.HeaderText = "Observações";
             Observacao.Name = "Observacao";
             // 
+            // btnExcluir
+            // 
+            btnExcluir.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnExcluir.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnExcluir.ForeColor = Color.DarkOliveGreen;
+            btnExcluir.Location = new Point(538, 119);
+            btnExcluir.Name = "btnExcluir";
+            btnExcluir.Size = new Size(144, 31);
+            btnExcluir.TabIndex = 37;
+            btnExcluir.Text = "Excluir Produto";
+            btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += button1_Click;
+            // 
             // ProductGridForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -105,6 +119,7 @@
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.SeaGreen;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnExcluir);
             Controls.Add(label1);
             Controls.Add(btnEditar);
             Controls.Add(dgvProdutos);
@@ -125,5 +140,6 @@
         private DataGridViewTextBoxColumn Nome;
         private DataGridViewTextBoxColumn QtdEstoque;
         private DataGridViewTextBoxColumn Observacao;
+        private Button btnExcluir;
     }
 }

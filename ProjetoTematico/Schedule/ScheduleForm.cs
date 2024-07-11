@@ -43,7 +43,7 @@ namespace ProjetoTematico.Schedule
 
             plantas.Add(new PlantDto());
             plantas.AddRange(_plantController.GetAll());
-            
+
             cbPlantas.DataSource = plantas;
             cbPlantas.DisplayMember = "Nome";
             cbPlantas.ValueMember = "Id";
@@ -76,10 +76,29 @@ namespace ProjetoTematico.Schedule
                 var usuario = new UserDto();
                 if (x.Work != null && x.Work.IdUsuarioRealizador.HasValue)
                 {
-                    usuario = _userController.GetById(x.Work.IdUsuarioRealizador.Value);
+                    try
+                    {
+                        usuario = _userController.GetById(x.Work.IdUsuarioRealizador.Value);
+                    }
+                    catch (Exception ex)
+                    {
+                        if (usuario.Id == 0)
+                        {
+                            usuario.Nome = "{excluido}";
+                        }
+                    }
                 }
 
-                var planta = _plantController.GetById(x.Care.PlantId);
+                var planta = new PlantDto();
+                try
+                {
+                    planta = _plantController.GetById(x.Care.PlantId);
+                }
+                catch (Exception ex)
+                {
+                    planta.Id = 0;
+                    planta.Nome = "{excluída}";
+                }
 
                 dgvCronograma.Rows.Add(
                     x.Work?.Realizada,
@@ -99,6 +118,12 @@ namespace ProjetoTematico.Schedule
             if (dgvCronograma.Rows.Count < 2)
             {
                 return;
+            }
+
+            var isFeito = dgvCronograma.CurrentRow.Cells["IsFeito"].Value;
+            if (isFeito != null && (bool)isFeito)
+            {
+                return; 
             }
 
             var planta = dgvCronograma.CurrentRow.Cells["Planta"].Value.ToString();
