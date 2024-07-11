@@ -30,10 +30,11 @@
         {
             btnEditar = new Button();
             dgvPlantas = new DataGridView();
-            label1 = new Label();
             Id = new DataGridViewTextBoxColumn();
             Nome = new DataGridViewTextBoxColumn();
             DataPlantio = new DataGridViewTextBoxColumn();
+            label1 = new Label();
+            btnExcluir = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvPlantas).BeginInit();
             SuspendLayout();
             // 
@@ -61,20 +62,6 @@
             dgvPlantas.Size = new Size(404, 362);
             dgvPlantas.TabIndex = 31;
             // 
-            // label1
-            // 
-            label1.BackColor = Color.YellowGreen;
-            label1.Dock = DockStyle.Top;
-            label1.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.DarkOliveGreen;
-            label1.Location = new Point(0, 0);
-            label1.Name = "label1";
-            label1.Padding = new Padding(20, 0, 20, 0);
-            label1.Size = new Size(587, 50);
-            label1.TabIndex = 33;
-            label1.Text = "CONSULTA PLANTAS";
-            label1.TextAlign = ContentAlignment.TopCenter;
-            // 
             // Id
             // 
             Id.HeaderText = "Id";
@@ -92,12 +79,39 @@
             DataPlantio.Name = "DataPlantio";
             DataPlantio.Width = 150;
             // 
+            // label1
+            // 
+            label1.BackColor = Color.YellowGreen;
+            label1.Dock = DockStyle.Top;
+            label1.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.DarkOliveGreen;
+            label1.Location = new Point(0, 0);
+            label1.Name = "label1";
+            label1.Padding = new Padding(20, 0, 20, 0);
+            label1.Size = new Size(587, 50);
+            label1.TabIndex = 33;
+            label1.Text = "CONSULTA PLANTAS";
+            label1.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // btnExcluir
+            // 
+            btnExcluir.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnExcluir.ForeColor = Color.DarkOliveGreen;
+            btnExcluir.Location = new Point(422, 113);
+            btnExcluir.Name = "btnExcluir";
+            btnExcluir.Size = new Size(128, 31);
+            btnExcluir.TabIndex = 34;
+            btnExcluir.Text = "Excluir Planta";
+            btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
+            // 
             // PlantGridForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SeaGreen;
             ClientSize = new Size(587, 450);
+            Controls.Add(btnExcluir);
             Controls.Add(label1);
             Controls.Add(btnEditar);
             Controls.Add(dgvPlantas);
@@ -117,5 +131,6 @@
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Nome;
         private DataGridViewTextBoxColumn DataPlantio;
+        private Button btnExcluir;
     }
 }

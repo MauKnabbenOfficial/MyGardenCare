@@ -17,17 +17,21 @@ namespace ProjetoTematico.Plant
     public partial class PlantGridForm : Form
     {
         PlantController _controle;
-        public PlantGridForm()
+        public PlantGridForm(UserDto usuarioLogado)
         {
             InitializeComponent();
             _controle = new PlantController();
+
+            if (usuarioLogado.AccessProfileId != 1) { 
+                this.btnExcluir.Visible = false;
+            }
         }
 
         private void PlantGridForm_Load(object sender, EventArgs e)
         {
             dgvPlantas.Rows.Clear();
 
-            var plantas = _controle.GetAll();            
+            var plantas = _controle.GetAll();
 
             plantas.ForEach(p =>
             {
@@ -53,6 +57,20 @@ namespace ProjetoTematico.Plant
                 PlantGridForm_Load(sender, e);
             }
 
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (dgvPlantas.CurrentRow.Cells[0].Value != null)
+            {
+                var res = MessageBox.Show($"Tem certeza que deseja excluir a planta {dgvPlantas.CurrentRow.Cells[1].Value}", "EXCLUIR", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (res == DialogResult.Yes)
+                {
+                    var id = int.Parse(dgvPlantas.CurrentRow.Cells[0].Value.ToString());
+                    _controle.DeletePlant(id);
+                }
+                PlantGridForm_Load(sender, e);
+            }
         }
     }
 }

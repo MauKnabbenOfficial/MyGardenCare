@@ -36,6 +36,7 @@
             Email = new DataGridViewTextBoxColumn();
             Administrador = new DataGridViewTextBoxColumn();
             btnEditar = new Button();
+            btnExcluir = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
             SuspendLayout();
             // 
@@ -106,12 +107,25 @@
             btnEditar.UseVisualStyleBackColor = true;
             btnEditar.Click += btnEditar_Click;
             // 
+            // btnExcluir
+            // 
+            btnExcluir.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnExcluir.ForeColor = Color.DarkOliveGreen;
+            btnExcluir.Location = new Point(473, 107);
+            btnExcluir.Name = "btnExcluir";
+            btnExcluir.Size = new Size(135, 31);
+            btnExcluir.TabIndex = 30;
+            btnExcluir.Text = "Excluir Usuário";
+            btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
+            // 
             // UserGridForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SeaGreen;
             ClientSize = new Size(617, 450);
+            Controls.Add(btnExcluir);
             Controls.Add(btnEditar);
             Controls.Add(dgvUsuarios);
             Controls.Add(lblH1);
@@ -135,5 +149,6 @@
         private DataGridViewTextBoxColumn Nome;
         private DataGridViewTextBoxColumn Email;
         private DataGridViewTextBoxColumn Administrador;
+        private Button btnExcluir;
     }
 }

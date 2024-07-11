@@ -1,4 +1,5 @@
-﻿using ProjetoTematico.Controllers;
+﻿using Microsoft.VisualBasic.FileIO;
+using ProjetoTematico.Controllers;
 using ProjetoTematico.Dto;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,11 @@ namespace ProjetoTematico.User
             _controller = new UserController();
 
             _usuarioLogado = usuarioLogado;
+
+            if (usuarioLogado.AccessProfileId != 1)
+            {
+                btnExcluir.Visible = false;
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -50,7 +56,26 @@ namespace ProjetoTematico.User
             var users = _controller.GetAll();
             foreach (var user in users)
             {
+                if (user.Id == 1)
+                {
+                    continue;
+                }
+
                 dgvUsuarios.Rows.Add(user.Id, user.Nome, user.Email, user.AccessProfileId == 1 ? "Sim" : "Não");
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (dgvUsuarios.CurrentRow.Cells[0].Value != null)
+            {                
+                var res = MessageBox.Show($"Tem certeza que deseja excluir o usuário {dgvUsuarios.CurrentRow.Cells[1].Value}", "EXCLUIR", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (res == DialogResult.Yes)
+                {
+                    var id = int.Parse(dgvUsuarios.CurrentRow.Cells[0].Value.ToString());
+                    _controller.DeleteUser(id);
+                }
+                UserGridForm_Load(sender, e);
             }
         }
     }

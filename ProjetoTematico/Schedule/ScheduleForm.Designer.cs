@@ -68,6 +68,7 @@
             // 
             dgvCronograma.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCronograma.BackgroundColor = Color.SeaGreen;
+            dgvCronograma.BorderStyle = BorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);

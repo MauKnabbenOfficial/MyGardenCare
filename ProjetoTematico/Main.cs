@@ -159,7 +159,7 @@ namespace ProjetoTematico
         {
             this.mainPanel.Controls.Clear();
 
-            PlantGridForm plantGridForm = new PlantGridForm
+            PlantGridForm plantGridForm = new PlantGridForm(_usuarioLogado)
             {
                 TopLevel = false,
                 Dock = DockStyle.Fill,
@@ -173,7 +173,7 @@ namespace ProjetoTematico
         {
             this.mainPanel.Controls.Clear();
 
-            ProductGridForm productGridForm = new ProductGridForm
+            ProductGridForm productGridForm = new ProductGridForm(_usuarioLogado)
             {
                 TopLevel = false,
                 Dock = DockStyle.Fill,
