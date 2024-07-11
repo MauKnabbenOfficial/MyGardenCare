@@ -35,6 +35,10 @@ namespace ProjetoTematico
             }
             catch
             {
+                if (_currentUser.GardenId is null) { 
+                    throw new Exception("É necessário ter ao menos um Jardim antes de cadastrar um Usuario!");
+                }
+
                 var garden = _gardenControle.GetById(_currentUser.GardenId.Value);
                 ManagerChief = _controle.GetById(garden.ManagerChiefId);
             }

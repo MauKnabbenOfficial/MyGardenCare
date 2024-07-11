@@ -167,7 +167,7 @@ namespace ProjetoTematico.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime?>("DataRealizacao")
+                    b.Property<string>("DataRealizacao")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

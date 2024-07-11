@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using Microsoft.Extensions.Logging;
 using ProjetoTematico.Domain;
-using ProjetoTematico.Persistence.Migrations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
