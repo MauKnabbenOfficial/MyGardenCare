@@ -7,7 +7,7 @@ public class PlantController : BaseController
 {
     public readonly PlantService _service;
 
-    public PlantController()
+    public PlantController(UserDto user) : base(user)
     {
         _service = new PlantService(_context);
     }

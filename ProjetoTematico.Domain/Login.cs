@@ -8,6 +8,6 @@ namespace ProjetoTematico.Domain;
 
 public class Login : BaseModel
 {
-    public string Nome { get; set; }
-    public string Senha { get; set; }
+    public string? Nome { get; set; }
+    public string? Senha { get; set; }
 }

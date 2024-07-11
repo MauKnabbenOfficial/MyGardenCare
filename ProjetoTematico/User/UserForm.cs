@@ -1,115 +1,87 @@
 ﻿using ProjetoTematico.Dto;
 using ProjetoTematico.Controllers;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using ProjetoTematico.Domain;
 
 namespace ProjetoTematico
 {
     public partial class UserForm : BaseControl
     {
+        private UserDto _currentUser;
         private UserController _controle;
-        UserDto _usuarioLogado;
-        UserDto _user;
-        public UserForm(UserDto usuarioLogado)
+        private AccessProfileController _accessProfileControle;
+        private GardenController _gardenControle;
+        private UserDto ManagerChief;
+
+        public UserForm(UserDto user)
         {
-            _controle = new UserController();
+            _currentUser = user;
+            _controle = new UserController(user);
+            _accessProfileControle = new AccessProfileController();
+            _gardenControle = new GardenController(user);
+
             InitializeComponent();
             SetToPanelChildForm();
 
-            _usuarioLogado = usuarioLogado;
-            validaPerfilAcesso();
+            PreparaDados();
         }
-        public UserForm(UserDto usuarioLogado, int id) : this(usuarioLogado)
-        {
-            _user = _controle.GetById(id);
 
-            PopularCampos();
-        }
-        private void validaPerfilAcesso()
+        private void PreparaDados()
         {
-            if (_usuarioLogado.AccessProfileId.Value != 1)
-            {                
-                btnSave.Visible = false;
+
+            try
+            {
+                _controle.CheckManagerChief();
+                ManagerChief = _currentUser;
             }
-        }
+            catch
+            {
+                var garden = _gardenControle.GetById(_currentUser.GardenId.Value);
+                ManagerChief = _controle.GetById(garden.ManagerChiefId);
+            }
 
-        private void PopularCampos()
-        {
-            this.txtNome.Text = _user.Nome;
-            this.txtCpf.Text = _user.Cpf;
-            this.txtTelefone.Text = _user.Telefone;
-            this.txtEmail.Text = _user.Email;
-            this.txtSenha.Text = _user.Senha;
-            this.IsAdmin.Checked = _user.AccessProfileId == 1;
+            var gardens = _gardenControle.GetAll();
+
+            comboBoxPermissao.DataSource = Enum.GetValues(typeof(Permissao));
+
+            comboBoxJardim.DataSource = gardens.Where(x => x.ManagerChiefId == ManagerChief.Id).ToList();
+            comboBoxJardim.DisplayMember = "Name";
+            comboBoxJardim.ValueMember = "Id";
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+
             var Nome = this.txtNome.Text;
             var Cpf = this.txtCpf.Text;
-            var Telefone = this.txtTelefone.Text;
-            var Email = this.txtEmail.Text;
-            var IsAdmin = this.IsAdmin.Checked;
-            var Senha = this.txtSenha.Text;
+            var Telefone = this.txtPhone.Text;
 
             try
             {
+                var profile = new AccessProfile() { PermissaoLevel = (Permissao)comboBoxPermissao.SelectedItem };
+                var profileDto = profile.MapTo<AccessProfileDto>();
+                var idAccessProfile = _accessProfileControle.CreateAccess(profileDto);
+
+                var gardenSelect = (GardenDto)comboBoxJardim.SelectedItem;
+
+
                 UserDto newUser = new UserDto
                 {
-                    Id = _user?.Id ?? 0,
-                    AccessProfileId = IsAdmin ? 1: 0,
                     Nome = Nome,
                     Cpf = Cpf,
                     Telefone = Telefone,
-                    Email = Email,
-                    IsAdmin = IsAdmin,
-                    Senha = Senha
+                    AccessProfileId = idAccessProfile,
+                    GardenId = gardenSelect.Id,
+                    Senha = "1234"
                 };
 
-                if (_user != null)
-                {
-                    _controle.UpdateUser(newUser);
-                    MessageBox.Show("Usuario atualizado com sucesso!", "SUCESSO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    _controle.CreateUser(newUser);
-                    MessageBox.Show("Usuario cadastrado com sucesso!", "SUCESSO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LimparCampos();
-                }
+                _controle.CreateUser(newUser);
+
+                MessageBox.Show("Usuario cadastrado com sucesso!", "SUCESSO!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ocorreu um Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-        private void LimparCampos()
-        {
-            this.txtNome.Clear();
-            this.txtSenha.Clear();
-            this.txtEmail.Clear();
-            this.txtTelefone.Clear();
-            this.txtCpf.Clear();
-            this.IsAdmin.Checked = false;
-        }
-
-        private void btnFechar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void maskedTextBox1_TextChanged(object sender, EventArgs e)
-        {
-            if (txtTelefone.Text.Length > 10) 
-            {
-                txtTelefone.Mask = "(00) 0 0000-0000";
             }
         }
     }

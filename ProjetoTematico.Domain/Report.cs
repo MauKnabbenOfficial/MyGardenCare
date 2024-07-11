@@ -9,6 +9,5 @@ namespace ProjetoTematico.Domain;
 
 public class Report : BaseModel
 {
-    [Key]
-    public int Id { get; set; }
+
 }

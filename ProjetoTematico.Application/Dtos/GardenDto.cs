@@ -1,10 +1,10 @@
-﻿
+﻿using ProjetoTematico.Domain;
 
 namespace ProjetoTematico.Dto;
 
 public class GardenDto : BaseDto
 {
-    public string Nome { get; set; }
-    public string Descricao { get; set; }
-    public string Endereco { get; set; }
+    public int ManagerChiefId { get; set; }
+    public string? Name { get; set; }
+    public string? Local { get; set; }
 }

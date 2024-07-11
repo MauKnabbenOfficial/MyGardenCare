@@ -18,11 +18,9 @@ public class ScheduleService : BaseService<Schedule, ScheduleDto>
     {
         _context = context;
 }
-    public List<ScheduleDto> GenerateSchedule(DateTime dateI, DateTime dateF, int plantId, bool somenteFeitas)
+    public List<ScheduleDto> GenerateSchedule(DateTime dateI, DateTime dateF, int plantId, bool somenteFeitas, PlantController plantController)
     {
-        var ret = new List<ScheduleDto>();
-
-        PlantController plantController = new PlantController();        
+        var ret = new List<ScheduleDto>();      
 
         CareService careService = new CareService(_context);
         var cares = careService.ReturnCaresTimeSpan(dateI, dateF);

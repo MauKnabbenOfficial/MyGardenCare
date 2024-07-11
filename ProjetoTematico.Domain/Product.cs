@@ -9,7 +9,5 @@ namespace ProjetoTematico.Domain;
 
 public class Product : BaseModel
 {
-    public string Nome { get; set; }
-    public int QtdEstoque { get; set; }
-    public string Observacoes { get; set; }
+
 }

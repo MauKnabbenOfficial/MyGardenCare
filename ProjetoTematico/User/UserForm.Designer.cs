@@ -28,239 +28,176 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblH1 = new Label();
-            txtTelefone = new MaskedTextBox();
-            txtCpf = new MaskedTextBox();
-            label2 = new Label();
-            txtSenha = new TextBox();
-            btnFechar = new Button();
-            IsAdmin = new CheckBox();
-            label1 = new Label();
-            txtEmail = new TextBox();
-            btnSave = new Button();
-            lblTelefone = new Label();
-            lblCpf = new Label();
             lblNome = new Label();
             txtNome = new TextBox();
+            txtCpf = new TextBox();
+            txtPhone = new TextBox();
+            lblCpf = new Label();
+            lblTelefone = new Label();
+            lblH1 = new Label();
+            btnSave = new Button();
+            panel1 = new Panel();
+            comboBoxPermissao = new ComboBox();
+            lblPermissao = new Label();
+            lblJardim = new Label();
+            comboBoxJardim = new ComboBox();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // lblH1
+            // lblNome
             // 
-            lblH1.BackColor = Color.YellowGreen;
-            lblH1.Dock = DockStyle.Top;
-            lblH1.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblH1.ForeColor = Color.DarkOliveGreen;
-            lblH1.Location = new Point(0, 0);
-            lblH1.Name = "lblH1";
-            lblH1.Size = new Size(800, 50);
-            lblH1.TabIndex = 6;
-            lblH1.Text = "CADASTRO DE USUÁRIO";
-            lblH1.TextAlign = ContentAlignment.TopCenter;
+            lblNome.AutoSize = true;
+            lblNome.Location = new Point(290, 107);
+            lblNome.Name = "lblNome";
+            lblNome.Size = new Size(42, 15);
+            lblNome.TabIndex = 0;
+            lblNome.Text = "NOME";
             // 
-            // txtTelefone
+            // txtNome
             // 
-            txtTelefone.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtTelefone.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            txtTelefone.HidePromptOnLeave = true;
-            txtTelefone.ImeMode = ImeMode.NoControl;
-            txtTelefone.Location = new Point(225, 148);
-            txtTelefone.Mask = "(00) 0000-0000";
-            txtTelefone.Name = "txtTelefone";
-            txtTelefone.PromptChar = ' ';
-            txtTelefone.Size = new Size(210, 29);
-            txtTelefone.TabIndex = 3;
-            txtTelefone.TextChanged += maskedTextBox1_TextChanged;
+            txtNome.Location = new Point(338, 99);
+            txtNome.Name = "txtNome";
+            txtNome.Size = new Size(121, 23);
+            txtNome.TabIndex = 1;
             // 
             // txtCpf
             // 
-            txtCpf.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtCpf.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            txtCpf.HidePromptOnLeave = true;
-            txtCpf.Location = new Point(225, 113);
-            txtCpf.Mask = "000,000,000-00";
+            txtCpf.Location = new Point(338, 138);
             txtCpf.Name = "txtCpf";
-            txtCpf.PromptChar = ' ';
-            txtCpf.Size = new Size(210, 29);
+            txtCpf.Size = new Size(121, 23);
             txtCpf.TabIndex = 2;
             // 
-            // label2
+            // txtPhone
             // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label2.AutoSize = true;
-            label2.BackColor = Color.SeaGreen;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(160, 224);
-            label2.Name = "label2";
-            label2.Size = new Size(57, 21);
-            label2.TabIndex = 25;
-            label2.Text = "Senha";
+            txtPhone.Location = new Point(338, 176);
+            txtPhone.Name = "txtPhone";
+            txtPhone.Size = new Size(121, 23);
+            txtPhone.TabIndex = 3;
             // 
-            // txtSenha
+            // lblCpf
             // 
-            txtSenha.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtSenha.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            txtSenha.Location = new Point(225, 220);
-            txtSenha.Name = "txtSenha";
-            txtSenha.PasswordChar = '*';
-            txtSenha.Size = new Size(377, 29);
-            txtSenha.TabIndex = 5;
-            txtSenha.UseSystemPasswordChar = true;
+            lblCpf.AutoSize = true;
+            lblCpf.Location = new Point(304, 146);
+            lblCpf.Name = "lblCpf";
+            lblCpf.Size = new Size(28, 15);
+            lblCpf.TabIndex = 4;
+            lblCpf.Text = "CPF";
             // 
-            // btnFechar
+            // lblTelefone
             // 
-            btnFechar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnFechar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnFechar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnFechar.ForeColor = Color.DarkOliveGreen;
-            btnFechar.Location = new Point(688, 288);
-            btnFechar.MaximumSize = new Size(100, 35);
-            btnFechar.Name = "btnFechar";
-            btnFechar.Size = new Size(100, 34);
-            btnFechar.TabIndex = 8;
-            btnFechar.Text = "FECHAR";
-            btnFechar.UseVisualStyleBackColor = true;
-            btnFechar.Click += btnFechar_Click;
+            lblTelefone.AutoSize = true;
+            lblTelefone.Location = new Point(271, 184);
+            lblTelefone.Name = "lblTelefone";
+            lblTelefone.Size = new Size(61, 15);
+            lblTelefone.TabIndex = 5;
+            lblTelefone.Text = "TELEFONE";
             // 
-            // IsAdmin
+            // lblH1
             // 
-            IsAdmin.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            IsAdmin.AutoSize = true;
-            IsAdmin.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            IsAdmin.ForeColor = Color.White;
-            IsAdmin.Location = new Point(225, 262);
-            IsAdmin.Name = "IsAdmin";
-            IsAdmin.Size = new Size(139, 25);
-            IsAdmin.TabIndex = 6;
-            IsAdmin.Text = "Administrador";
-            IsAdmin.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.BackColor = Color.SeaGreen;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(164, 188);
-            label1.Name = "label1";
-            label1.Size = new Size(53, 21);
-            label1.TabIndex = 24;
-            label1.Text = "Email";
-            // 
-            // txtEmail
-            // 
-            txtEmail.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtEmail.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            txtEmail.Location = new Point(225, 184);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(377, 29);
-            txtEmail.TabIndex = 4;
+            lblH1.AutoSize = true;
+            lblH1.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblH1.Location = new Point(155, 9);
+            lblH1.Name = "lblH1";
+            lblH1.Size = new Size(450, 50);
+            lblH1.TabIndex = 6;
+            lblH1.Text = "CADASTRO DE USUÁRIO";
             // 
             // btnSave
             // 
-            btnSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnSave.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnSave.ForeColor = Color.DarkOliveGreen;
-            btnSave.Location = new Point(582, 288);
+            btnSave.Location = new Point(338, 297);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(100, 34);
+            btnSave.Size = new Size(100, 23);
             btnSave.TabIndex = 7;
             btnSave.Text = "SALVAR";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
-            // lblTelefone
+            // panel1
             // 
-            lblTelefone.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lblTelefone.AutoSize = true;
-            lblTelefone.BackColor = Color.SeaGreen;
-            lblTelefone.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblTelefone.ForeColor = Color.White;
-            lblTelefone.Location = new Point(141, 152);
-            lblTelefone.Name = "lblTelefone";
-            lblTelefone.Size = new Size(76, 21);
-            lblTelefone.TabIndex = 20;
-            lblTelefone.Text = "Telefone";
+            panel1.AutoSize = true;
+            panel1.Controls.Add(comboBoxJardim);
+            panel1.Controls.Add(lblJardim);
+            panel1.Controls.Add(comboBoxPermissao);
+            panel1.Controls.Add(lblPermissao);
+            panel1.Controls.Add(btnSave);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(800, 450);
+            panel1.TabIndex = 8;
             // 
-            // lblCpf
+            // comboBoxPermissao
             // 
-            lblCpf.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lblCpf.AutoSize = true;
-            lblCpf.BackColor = Color.SeaGreen;
-            lblCpf.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblCpf.ForeColor = Color.White;
-            lblCpf.Location = new Point(179, 116);
-            lblCpf.Name = "lblCpf";
-            lblCpf.Size = new Size(38, 21);
-            lblCpf.TabIndex = 18;
-            lblCpf.Text = "CPF";
+            comboBoxPermissao.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxPermissao.FormattingEnabled = true;
+            comboBoxPermissao.Location = new Point(338, 214);
+            comboBoxPermissao.Name = "comboBoxPermissao";
+            comboBoxPermissao.Size = new Size(121, 23);
+            comboBoxPermissao.TabIndex = 9;
             // 
-            // lblNome
+            // lblPermissao
             // 
-            lblNome.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lblNome.AutoSize = true;
-            lblNome.BackColor = Color.SeaGreen;
-            lblNome.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblNome.ForeColor = Color.White;
-            lblNome.Location = new Point(160, 80);
-            lblNome.Name = "lblNome";
-            lblNome.Size = new Size(57, 21);
-            lblNome.TabIndex = 13;
-            lblNome.Text = "Nome";
+            lblPermissao.AutoSize = true;
+            lblPermissao.Location = new Point(262, 222);
+            lblPermissao.Name = "lblPermissao";
+            lblPermissao.Size = new Size(70, 15);
+            lblPermissao.TabIndex = 8;
+            lblPermissao.Text = "PERMISSAO";
             // 
-            // txtNome
+            // lblJardim
             // 
-            txtNome.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtNome.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            txtNome.Location = new Point(225, 76);
-            txtNome.Name = "txtNome";
-            txtNome.Size = new Size(377, 29);
-            txtNome.TabIndex = 1;
+            lblJardim.AutoSize = true;
+            lblJardim.Location = new Point(284, 254);
+            lblJardim.Name = "lblJardim";
+            lblJardim.Size = new Size(48, 15);
+            lblJardim.TabIndex = 10;
+            lblJardim.Text = "JARDIM";
+            // 
+            // comboBoxJardim
+            // 
+            comboBoxJardim.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxJardim.FormattingEnabled = true;
+            comboBoxJardim.Location = new Point(338, 246);
+            comboBoxJardim.Name = "comboBoxJardim";
+            comboBoxJardim.Size = new Size(121, 23);
+            comboBoxJardim.TabIndex = 11;
             // 
             // UserForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            BackColor = Color.SeaGreen;
-            ClientSize = new Size(800, 334);
-            Controls.Add(txtTelefone);
-            Controls.Add(txtCpf);
-            Controls.Add(label2);
-            Controls.Add(txtSenha);
-            Controls.Add(btnFechar);
-            Controls.Add(IsAdmin);
-            Controls.Add(label1);
-            Controls.Add(txtEmail);
-            Controls.Add(btnSave);
+            AutoSize = true;
+            ClientSize = new Size(800, 450);
+            Controls.Add(lblH1);
             Controls.Add(lblTelefone);
             Controls.Add(lblCpf);
-            Controls.Add(lblNome);
+            Controls.Add(txtPhone);
+            Controls.Add(txtCpf);
             Controls.Add(txtNome);
-            Controls.Add(lblH1);
-            FormBorderStyle = FormBorderStyle.None;
+            Controls.Add(lblNome);
+            Controls.Add(panel1);
             Name = "UserForm";
             Text = "UserForm";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private Label lblH1;
-        private MaskedTextBox txtTelefone;
-        private MaskedTextBox txtCpf;
-        private Label label2;
-        private TextBox txtSenha;
-        private Button btnFechar;
-        private CheckBox IsAdmin;
-        private Label label1;
-        private TextBox txtEmail;
-        private Button btnSave;
-        private Label lblTelefone;
-        private Label lblCpf;
+
         private Label lblNome;
         private TextBox txtNome;
+        private TextBox txtCpf;
+        private TextBox txtPhone;
+        private Label lblCpf;
+        private Label lblTelefone;
+        private Label lblH1;
+        private Button btnSave;
+        private Panel panel1;
+        private Label lblPermissao;
+        private ComboBox comboBoxPermissao;
+        private ComboBox comboBoxJardim;
+        private Label lblJardim;
     }
 }

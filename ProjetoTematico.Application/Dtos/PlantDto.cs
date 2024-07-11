@@ -25,8 +25,9 @@ public class PlantDto : BaseDto
     private List<CareDto> MontarListaCuidados(int id)
     {
         var ret = new List<CareDto>();
-        CareController careController = new CareController();
-        ret = careController.GetAll().Where(c => c.PlantId == id).ToList();
+        //VERIFICAR!
+        //CareController careController = new CareController();
+        //ret = careController.GetAll().Where(c => c.PlantId == id).ToList();
 
         return ret;
     }

@@ -6,11 +6,10 @@ namespace ProjetoTematico
     public partial class Login : Form
     {
         private LoginController _controle;
-
         public Login()
         {
-            _controle = new LoginController();
             InitializeComponent();
+            _controle = new LoginController();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -20,13 +19,13 @@ namespace ProjetoTematico
 
             try
             {
-                var user = new LoginDto
+                var userLogin = new LoginDto
                 {
                     Nome = name,
                     Senha = password
                 };
 
-                var login = _controle.DoLogin(user);
+                var login = _controle.DoLogin(userLogin);
 
                 if (login is not null)
                 {
